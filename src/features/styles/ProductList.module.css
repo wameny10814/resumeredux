@@ -1,0 +1,24 @@
+*{
+    outline: 1px solid;
+}
+.bannerSec{
+    width: 1000px;
+    margin: 3rem auto 3rem auto;
+}
+.bannerimg{
+    width: 100%;
+}
+.ProducFlex{
+    display: flex;
+    justify-content: center;
+}
+.ProducSec{
+    width: 200px;
+}
+.ProductimgSec{
+    width: 100px;
+    margin: auto;
+}
+.Productimg{
+    width: 100%;
+}
