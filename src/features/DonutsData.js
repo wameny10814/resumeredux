@@ -3,7 +3,9 @@ export const DonutsData = [
     "name": '',
     "price": '',
     "key":0,
-    "count":'',
+    "count":0,
     "total":'',
+    "incre":null,
+    "decre":null,
 },
 ];

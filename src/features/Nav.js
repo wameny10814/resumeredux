@@ -8,7 +8,6 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 function Nav() {
-    // const cartTotal = useSelector(state => state.cartTotal.value)
     const Data = useSelector(state => state.cartTotal.value)
     const [DataChange, setDataChange] = useState(false);
     useEffect(() => {
@@ -16,19 +15,16 @@ function Nav() {
     }, [Data])
     return (
         <div className={styles.nav}>
-            <div>LOGO</div>
+            <div className={styles.logo}>
+                <h2>甜圈</h2>
+            </div>
             <div className={styles.navList}>
-                <Link className="nav-link" to="/Cart">
-                    <div className={styles.navListItem}>購物車
-                        <div>
-                            {/* <div>
-                       <img src={heart}></img>
-                   </div> */}
-                            {DataChange ? (<p>{Data.length}</p>) : (<p>0</p>)}
-                        </div>
+                <Link className={styles.navLink} to="/Cart">
+                    <div className={styles.navListItem}>
+                        <span>購物車{Data.length}</span>
                     </div>
                 </Link>
-                <Link className="nav-link" to="/">
+                <Link to="/" className={styles.navLink}>
                     <div className={styles.navListItem}>商品一覽</div>
                 </Link>
 

@@ -1,15 +1,29 @@
-
+/* 
+*{
+ outline: 1px solid;
+} */
 .nav{
     display: flex;
     background-color: #F5F5F5;
     justify-content: space-between;
 }
+.logo{
+  margin-left: 1rem;
+}
 .navList{
     display: flex;
- 
+    color: black;
+}
+.navLink{
+  text-decoration: none;
+
+}
+.navLink:active{
+  color: black;
 }
 .navListItem{
     margin-right: 1rem;
+    margin-top: 30%;
 }
 .heart_shape{
     position: relative;

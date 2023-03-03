@@ -16,9 +16,18 @@ const columns = [
         title: '單價',
         dataIndex: 'price',
     },
+   
+    {
+        title: '加項',
+        dataIndex: 'incre',
+    },
     {
         title: '數量',
         dataIndex: 'count',
+    },
+    {
+        title: '減項',
+        dataIndex: 'decre',
     },
     {
         title: '總價',
@@ -34,12 +43,11 @@ const CartTable = () => {
     const del = () => 
     {   
         dispatch(dataDel({key:selectedRowKeys}));
-        console.log('Data: ', Data);
     }
     const onSelectChange = (newSelectedRowKeys) => {
         console.log('selectedRowKeys changed: ', newSelectedRowKeys);
         setSelectedRowKeys(newSelectedRowKeys);
-        console.log('Data: ', Data);
+
     };
     const rowSelection = {
         selectedRowKeys,
@@ -53,15 +61,21 @@ const CartTable = () => {
                     marginBottom: 16,
                 }}
             >
-                <Button type="primary" onClick={del} disabled={!hasSelected} loading={loading}>
-                    Reload
-                </Button>
+                <button style={{
+                    marginBottom: 16,
+                    border:'none',
+                    borderRadius:'30px',
+                    backgroundColor:'#F2A99B',
+                    color:'white'
+                }} type="primary" onClick={del} disabled={!hasSelected} loading={loading}>
+                    自購物車刪除
+                </button>
                 <span
                     style={{
                         marginLeft: 8,
                     }}
                 >
-                    {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
+                    {/* {hasSelected ? `已選擇 ${selectedRowKeys.length} 項` : ''} */}
                 </span>
             </div>
             <Table rowSelection={rowSelection} columns={columns} dataSource={Data} />
