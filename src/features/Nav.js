@@ -21,7 +21,7 @@ function Nav() {
             <div className={styles.navList}>
                 <Link className={styles.navLink} to="/Cart">
                     <div className={styles.navListItem}>
-                        <span>購物車{Data.length}</span>
+                        <span>購物車{Data.length*1-1}</span>
                     </div>
                 </Link>
                 <Link to="/" className={styles.navLink}>

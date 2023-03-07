@@ -5,7 +5,7 @@ export const DonutsData = [
     "key":0,
     "count":0,
     "total":'',
-    "incre":null,
-    "decre":null,
+    "incre":'',
+    "decre":'',
 },
 ];

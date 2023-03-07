@@ -7,7 +7,7 @@ import styles from '../styles/Cart.module.css';
 function Cart() {
     const Data = useSelector(state => state.cartTotal.value)
     return (
-        <div>
+        <div className={styles.cartSec}>
             <div className={styles.title}>
                 <h3>購物車清單</h3>
             </div>

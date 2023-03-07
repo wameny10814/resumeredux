@@ -1,5 +1,5 @@
 import { Button, Table } from 'antd';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {dataDel} from '../counter/CartSlice'
 //table 欄位名稱
@@ -37,6 +37,8 @@ const columns = [
 
 const CartTable = () => {
     const Data = useSelector(state => state.cartTotal.value)
+    const DataWithoutIniT = Data.filter((data) => data.key !== 0)
+    const [DataList, setDataList] = useState([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch()
@@ -54,6 +56,12 @@ const CartTable = () => {
         onChange: onSelectChange,
     };
     const hasSelected = selectedRowKeys.length > 0;
+
+    useEffect(() => {
+        setDataList(Data);
+        console.log('datalist',DataList.length);
+    }, []);
+    
     return (
         <div>
             <div
@@ -78,7 +86,11 @@ const CartTable = () => {
                     {/* {hasSelected ? `已選擇 ${selectedRowKeys.length} 項` : ''} */}
                 </span>
             </div>
-            <Table rowSelection={rowSelection} columns={columns} dataSource={Data} />
+            {
+                Data.length===1 ?(<p>購物車無資料</p>):( <Table rowSelection={rowSelection} columns={columns} dataSource={DataWithoutIniT} />)
+            }
+            {/* <Table rowSelection={rowSelection} columns={columns} dataSource={Data} /> */}
+        
         </div>
     );
 };

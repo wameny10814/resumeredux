@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addCart,plus } from '../counter/CartSlice'
+import { addCart,plus,deduction } from '../counter/CartSlice'
 // import {increment} from '../counter/counterSlice'
 
 import dunut01 from '../imgs/donut01.png';
@@ -59,7 +59,7 @@ function ProductList() {
 
 
     return (
-        <>
+        <div className={styles.ProductListSec}>
             <div className={styles.bannerSec}>
                 <img className={styles.bannerimg} src={banner}></img>
             </div>
@@ -84,8 +84,9 @@ function ProductList() {
                                         key: Data[Data.length - 1].key * 1 + 1,
                                         count: 1,
                                         total: v.price,
-                                        incre:<button style={{border:'none',backgroundColor:'white'}} onClick={()=>dispatch(plus({key:Data[Data.length - 1].key * 1}))}>+</button>,
-                                        decre:<button style={{border:'none',backgroundColor:'white'}}>-</button>,
+                                        incre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',backgroundColor:'white'}} onClick={()=>dispatch(plus({key:Data[Data.length - 1].key * 1 + 1}))}>+</button>,
+                                        decre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',backgroundColor:'white'}}
+                                        onClick={()=>dispatch(deduction({key:Data[Data.length - 1].key * 1 + 1}))}>-</button>,
                                     }))}>加入購物車</button>
                                 </div>
                             </div>
@@ -100,7 +101,7 @@ function ProductList() {
 
 
 
-        </>
+        </div>
     )
 }
 

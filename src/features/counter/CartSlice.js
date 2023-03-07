@@ -4,7 +4,17 @@ import { DonutsData } from '../DonutsData'
 export const CartSlice = createSlice({
     name: 'cart',
     initialState: {
-        value: DonutsData
+        value: [
+            {
+                "name": '',
+                "price": '',
+                "key":0,
+                "count":0,
+                "total":'',
+                "incre":'',
+                "decre":'',
+            },
+        ]
     },
     reducers: {
         dataReset: (state, action) => {
@@ -13,7 +23,7 @@ export const CartSlice = createSlice({
         addCart: (state, action) => {
             // state.value.push(1);
             // state.value.push(1).reduce((a,b)=>a+b)
-            state.value = state.value.filter((user) => user.key !== 0);
+            // state.value = state.value.filter((user) => user.key !== 0);
             state.value.push(action.payload);
         },
         dataDel: (state, action) => {
@@ -23,8 +33,24 @@ export const CartSlice = createSlice({
         plus: (state, action) => {
             
             state.value.filter((user) => action.payload.key !== 0).map((cart) => {
-                if (cart.key===action.payload.key) {
-                    cart.count += 1;
+                if (cart.key ===action.payload.key) {
+                    if(cart.count>=0){
+                        cart.count += 1; 
+                    }else{
+                        cart.count =cart.count; 
+                    }
+                }
+            })
+        },
+        deduction: (state, action) => {
+            
+            state.value.filter((user) => action.payload.key !== 0).map((cart) => {
+                if (cart.key ===action.payload.key ) {
+                    if(cart.count>0){
+                        cart.count -= 1; 
+                    }else{
+                        cart.count =cart.count; 
+                    }
                 }
             })
         },
@@ -35,6 +61,6 @@ export const CartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { dataReset, addCart, dataDel, plus, discountincrementByAmount } = CartSlice.actions
+export const { dataReset, addCart, dataDel, plus,deduction, discountincrementByAmount } = CartSlice.actions
 
 export default CartSlice.reducer

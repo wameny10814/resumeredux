@@ -1,6 +1,9 @@
 /* *{
     outline: 1px solid;
 } */
+.ProductListSec{
+    margin-bottom: 3rem;
+}
 .bannerSec{
     width: 1000px;
     margin: 3rem auto 3rem auto;
