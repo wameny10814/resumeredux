@@ -34,10 +34,12 @@ export const CartSlice = createSlice({
             
             state.value.filter((user) => action.payload.key !== 0).map((cart) => {
                 if (cart.key ===action.payload.key) {
-                    if(cart.count>=0){
+                    if(cart.count>=1){
                         cart.count += 1; 
+                        cart.total = cart.count*cart.price;
                     }else{
                         cart.count =cart.count; 
+                        cart.total = cart.count*cart.price;
                     }
                 }
             })
@@ -46,10 +48,12 @@ export const CartSlice = createSlice({
             
             state.value.filter((user) => action.payload.key !== 0).map((cart) => {
                 if (cart.key ===action.payload.key ) {
-                    if(cart.count>0){
+                    if(cart.count>1){
                         cart.count -= 1; 
+                        cart.total = cart.count*cart.price;
                     }else{
                         cart.count =cart.count; 
+                        cart.total = cart.count*cart.price;
                     }
                 }
             })

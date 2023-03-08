@@ -12,7 +12,9 @@ function Nav() {
     const [DataChange, setDataChange] = useState(false);
     useEffect(() => {
         setDataChange(true)
+        console.log('datachanged')
     }, [Data])
+
     return (
         <div className={styles.nav}>
             <div className={styles.logo}>
@@ -21,7 +23,10 @@ function Nav() {
             <div className={styles.navList}>
                 <Link className={styles.navLink} to="/Cart">
                     <div className={styles.navListItem}>
-                        <span>購物車{Data.length*1-1}</span>
+
+                        <span className={styles.navCart}>購物車
+                            <span className={styles.navCartCount}>{Data.length * 1 - 1 === 0 ? <p style={{width:'25px'}}></p> : <span>{Data.length * 1 - 1}</span>}</span>
+                        </span>
                     </div>
                 </Link>
                 <Link to="/" className={styles.navLink}>

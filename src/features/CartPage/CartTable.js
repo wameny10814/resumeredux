@@ -2,6 +2,7 @@ import { Button, Table } from 'antd';
 import { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {dataDel} from '../counter/CartSlice'
+import '../styles/ant.css'
 //table 欄位名稱
 const columns = [
     {

@@ -84,8 +84,8 @@ function ProductList() {
                                         key: Data[Data.length - 1].key * 1 + 1,
                                         count: 1,
                                         total: v.price,
-                                        incre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',backgroundColor:'white'}} onClick={()=>dispatch(plus({key:Data[Data.length - 1].key * 1 + 1}))}>+</button>,
-                                        decre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',backgroundColor:'white'}}
+                                        incre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',borderRadius:'50%'}} onClick={()=>dispatch(plus({key:Data[Data.length - 1].key * 1 + 1}))}>+</button>,
+                                        decre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',borderRadius:'50%'}}
                                         onClick={()=>dispatch(deduction({key:Data[Data.length - 1].key * 1 + 1}))}>-</button>,
                                     }))}>加入購物車</button>
                                 </div>

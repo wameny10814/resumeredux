@@ -1,7 +1,25 @@
 
+
 .cartSec{
     height: 100vh;
 }
 .title{
     text-align: center;
+}
+.totalSec {
+  width: 30rem;
+  margin: auto;
+    
+}
+.totalTitle{
+    border-bottom: 2px solid #b6b6b6;
+}
+.totalDetailSec{
+
+ margin-top: 1rem;
+
+}
+.totaltitleSec{
+    display: flex;
+    justify-content: space-between;
 }
