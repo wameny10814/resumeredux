@@ -5,6 +5,7 @@ import Nav from './features/Nav'
 import ProductList from './features/ProductList/ProductList';
 import Cart from './features/CartPage/Cart'
 import Footer from './Footer';
+import Checkout from './features/Linepay/Checkout'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {  ConfigProvider } from 'antd';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<ProductList />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="Counter" element={<Counter />} />
+          <Route path="Checkout" element={<Checkout />} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

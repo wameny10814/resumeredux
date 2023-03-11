@@ -18,7 +18,7 @@ function Nav() {
     return (
         <div className={styles.nav}>
             <div className={styles.logo}>
-                <h2>甜圈</h2>
+                <h2>恬圈</h2>
             </div>
             <div className={styles.navList}>
                 <Link className={styles.navLink} to="/Cart">
