@@ -23,34 +23,34 @@ function ProductList() {
     const FakeData = [
         {
             "name": "原味波堤",
-            "price": "35",
-            "key": "0",
+            "price": 35,
+            "id": "0",
             'src':dunut01,
         },
         {
             "name": "豆漿波堤",
-            "price": "40",
-            "key": "1",
+            "price": 40,
+            "id": "1",
             'src':soybean,
         }, {
             "name": "草莓波堤",
-            "price": "40",
-            "key": "2",
+            "price": 40,
+            "id": "2",
             'src':strawberry
         }, {
             "name": "焦糖巧克力波堤",
-            "price": "50",
-            "key": "3",
+            "price": 50,
+            "id": "3",
             'src':chocolate
         }, {
             "name": "宇治抹茶波堤",
-            "price": "45",
-            "key": "4",
+            "price": 45,
+            "id": "4",
             'src':mocha,
         }, {
             "name": "白巧克力波堤",
-            "price": "45",
-            "key": "5",
+            "price": 45,
+            "id": "5",
             'src':whitechoco,
         },
     ]
@@ -69,7 +69,7 @@ function ProductList() {
                     return (
 
                         <Col span={8}>
-                            <div key={v.key} className={styles.ProducSec} >
+                            <div key={v.id} className={styles.ProducSec} >
                                 <div className={styles.ProductimgSec}>
                                     <img src={v.src} className={styles.Productimg}></img>
                                 </div>
@@ -81,12 +81,12 @@ function ProductList() {
                                     <button className={styles.addtoCart} onClick={() => dispatch(addCart({
                                         name: v.name,
                                         price: v.price,
-                                        key: Data[Data.length - 1].key * 1 + 1,
-                                        count: 1,
+                                        id: Data[Data.length - 1].id * 1 + 1,
+                                        quantity: 1,
                                         total: v.price,
-                                        incre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',borderRadius:'50%'}} onClick={()=>dispatch(plus({key:Data[Data.length - 1].key * 1 + 1}))}>+</button>,
-                                        decre:<button key={Data[Data.length - 1].key * 1 + 1} style={{border:'none',borderRadius:'50%'}}
-                                        onClick={()=>dispatch(deduction({key:Data[Data.length - 1].key * 1 + 1}))}>-</button>,
+                                        incre:<button key={Data[Data.length - 1].id * 1 + 1} style={{border:'none',borderRadius:'50%'}} onClick={()=>dispatch(plus({id:Data[Data.length - 1].id * 1 + 1}))}>+</button>,
+                                        decre:<button key={Data[Data.length - 1].id * 1 + 1} style={{border:'none',borderRadius:'50%'}}
+                                        onClick={()=>dispatch(deduction({id:Data[Data.length - 1].id * 1 + 1}))}>-</button>,
                                     }))}>加入購物車</button>
                                 </div>
                             </div>

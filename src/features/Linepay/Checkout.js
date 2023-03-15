@@ -1,18 +1,25 @@
 import React from 'react'
 import {useEffect,useState} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 function Checkout() {
-    const [ID, setID] = useState(0)
+    const [ID, setID] = useState(0);
+    const Data = useSelector(state => state.cartTotal.value)
     const checkout = () => {
-        fetch('http://localhost:3500/admin2/checkout/1', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                console.log('data', data);
-                setID(data.orderId);
-            })
+         console.log('datafromRedux',Data)
+    //     fetch('http://localhost:3500/admin2/checkout/1', {
+    //         method: 'POST',
+    //         body:{
+             
+    //         }
+    //         headers: { 'Content-Type': 'application/json' }
+    //     })
+    //         .then((r) => r.json())
+    //         .then((data) => {
+    //             console.log('data', data);
+    //             setID(data.orderId);
+    //         })
+    // }
     }
 
     const createOrder = () => {
@@ -32,10 +39,7 @@ function Checkout() {
     }, [])
     return (
         <div>
-            <p>Checkout</p>
-            
             <button onClick={createOrder}>送出表單</button>
-            
         </div>
     )
 }

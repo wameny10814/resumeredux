@@ -5,11 +5,11 @@ export const CartSlice = createSlice({
     name: 'cart',
     initialState: {
         value: [
-            {
+            {   
+                "id":0,
                 "name": '',
-                "price": '',
-                "key":0,
-                "count":0,
+                "quantity":0,
+                "price": 0,
                 "total":'',
                 "incre":'',
                 "decre":'',
@@ -33,27 +33,27 @@ export const CartSlice = createSlice({
         plus: (state, action) => {
             
             state.value.filter((user) => action.payload.key !== 0).map((cart) => {
-                if (cart.key ===action.payload.key) {
-                    if(cart.count>=1){
-                        cart.count += 1; 
-                        cart.total = cart.count*cart.price;
+                if (cart.id ===action.payload.id) {
+                    if(cart.quantity>=1){
+                        cart.quantity += 1; 
+                        cart.total = cart.quantity*cart.price;
                     }else{
-                        cart.count =cart.count; 
-                        cart.total = cart.count*cart.price;
+                        cart.quantity =cart.quantity; 
+                        cart.total = cart.quantity*cart.price;
                     }
                 }
             })
         },
         deduction: (state, action) => {
             
-            state.value.filter((user) => action.payload.key !== 0).map((cart) => {
-                if (cart.key ===action.payload.key ) {
-                    if(cart.count>1){
-                        cart.count -= 1; 
-                        cart.total = cart.count*cart.price;
+            state.value.filter((user) => action.payload.id !== 0).map((cart) => {
+                if (cart.id ===action.payload.id ) {
+                    if(cart.quantity>1){
+                        cart.quantity -= 1; 
+                        cart.total = cart.quantity*cart.price;
                     }else{
-                        cart.count =cart.count; 
-                        cart.total = cart.count*cart.price;
+                        cart.quantity =cart.quantity; 
+                        cart.total = cart.quantity*cart.price;
                     }
                 }
             })

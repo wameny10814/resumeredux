@@ -6,6 +6,7 @@ import ProductList from './features/ProductList/ProductList';
 import Cart from './features/CartPage/Cart'
 import Footer from './Footer';
 import Checkout from './features/Linepay/Checkout'
+import Confirm from './features/Linepay/Confirm'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {  ConfigProvider } from 'antd';
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="Cart" element={<Cart />} />
           <Route path="Counter" element={<Counter />} />
           <Route path="Checkout" element={<Checkout />} />
+          <Route path="linePay/confirm" element={<Confirm />} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

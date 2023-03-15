@@ -7,7 +7,7 @@ import '../styles/ant.css'
 const columns = [
     {
         title: '項次',
-        dataIndex: 'key',
+        dataIndex: 'id',
     },
     {
         title: '品名',
@@ -17,14 +17,13 @@ const columns = [
         title: '單價',
         dataIndex: 'price',
     },
-   
     {
         title: '加項',
         dataIndex: 'incre',
     },
     {
         title: '數量',
-        dataIndex: 'count',
+        dataIndex: 'quantity',
     },
     {
         title: '減項',
@@ -38,7 +37,7 @@ const columns = [
 
 const CartTable = () => {
     const Data = useSelector(state => state.cartTotal.value)
-    const DataWithoutIniT = Data.filter((data) => data.key !== 0)
+    const DataWithoutIniT = Data.filter((data) => data.id !== 0)
     const [DataList, setDataList] = useState([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setLoading] = useState(false);
