@@ -45,6 +45,8 @@ const CartTable = () => {
     const del = () => 
     {   
         dispatch(dataDel({key:selectedRowKeys}));
+        setSelectedRowKeys([]);
+
     }
     const onSelectChange = (newSelectedRowKeys) => {
         console.log('selectedRowKeys changed: ', newSelectedRowKeys);
@@ -83,7 +85,7 @@ const CartTable = () => {
                         marginLeft: 8,
                     }}
                 >
-                    {/* {hasSelected ? `已選擇 ${selectedRowKeys.length} 項` : ''} */}
+                    {hasSelected ? `已選擇 ${selectedRowKeys.length} 項` : ''}
                 </span>
             </div>
             {

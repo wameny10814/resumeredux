@@ -7,6 +7,7 @@ export const CartSlice = createSlice({
         value: [
             {   
                 "id":0,
+                "key":0,
                 "name": '',
                 "quantity":0,
                 "price": 0,

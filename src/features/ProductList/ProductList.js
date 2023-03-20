@@ -82,6 +82,7 @@ function ProductList() {
                                         name: v.name,
                                         price: v.price,
                                         id: Data[Data.length - 1].id * 1 + 1,
+                                        key:Data[Data.length - 1].id * 1 + 1,
                                         quantity: 1,
                                         total: v.price,
                                         incre:<button key={Data[Data.length - 1].id * 1 + 1} style={{border:'none',borderRadius:'50%'}} onClick={()=>dispatch(plus({id:Data[Data.length - 1].id * 1 + 1}))}>+</button>,
