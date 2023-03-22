@@ -1,29 +1,37 @@
 
-/* *{
- outline: 1px solid;
-}  */
+*{
+ /* outline: 1px solid; */
+ box-sizing: border-box;
+} 
 .nav{
-    display: flex;
     background-color: #F5F5F5;
-    justify-content: space-between;
+    width: 100%;
+    position: relative;
 }
-.logo{
-  margin-left: 1rem;
-}
+
 .navList{
     display: flex;
-    color: black;
+    justify-content: space-around;
+    width: 100%;
 }
 .navLink{
   text-decoration: none;
-
+  display: flex;
+  
 }
 .navLink:active{
   color: black;
 }
+.navArrorLeft{
+  margin: 1.5rem 10px;
+  opacity: 0;
+  transition:  opacity .5s ease-in;
+}
 .navListItem{
-    margin-right: 1rem;
     margin-top: 1.5rem;
+}
+.navLink :hover + .navArrorLeft{
+  opacity: 1;
 }
 .heart_shape{
     position: relative;
@@ -59,4 +67,17 @@
   .navCart{
     position: relative;
   }
- 
+  .homelogo{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: -15px;
+    left: 45%;
+    transition: all .5s ease-in-out;
+  }
+  .homelogo:hover{
+    transform: scale(1.2);
+  }
+  .homeimg{
+    width: 100%;
+  }

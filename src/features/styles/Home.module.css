@@ -1,0 +1,32 @@
+
+*{
+    outline: 1px solid;
+}
+.homebannerSec{
+    height: 100vh;
+}
+.homebanner{
+    height: 100vh;
+}
+.homebanner img{
+    width: 99.9%;
+    height: 100%;
+}
+.homebannerSec{
+    background-image: url('../imgs//homebanner.jpg');
+    background-size: 100%;
+    height: 100vh;
+    background-position: 0 -100px; 
+    background-repeat: no-repeat;
+}
+.bannerTitle{
+    /* //讓文字直式的屬性 */
+    -webkit-writing-mode: vertical-lr;
+    color: white;
+    font-weight: 500;
+    font-size: larger;
+    margin-left: 10%;
+    padding-top: 10%;
+ 
+
+}

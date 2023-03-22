@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from './features/counter/Counter'
 import Nav from './features/Nav'
+import Home from './features/HomePage/Home'
 import ProductList from './features/ProductList/ProductList';
 import Cart from './features/CartPage/Cart'
 import Footer from './Footer';
@@ -23,7 +24,8 @@ function App() {
       <BrowserRouter>
         <Nav></Nav>
         <Routes>
-          <Route path="/" element={<ProductList />} />
+        <Route path="/" element={<Home />} />
+          <Route path="/ProductList" element={<ProductList />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="Counter" element={<Counter />} />
           <Route path="Checkout" element={<Checkout />} />

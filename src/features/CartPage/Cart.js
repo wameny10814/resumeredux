@@ -43,7 +43,6 @@ function Cart() {
         let bodyformat = DataWithoutIniT;
         console.log('bodyformat',bodyformat);
     //    delete bodyformat[0].incre;
-        console.log('deleteData',bodyformat);
         fetch('http://localhost:3500/admin2/checkout', {
             method: 'POST',
             body: JSON.stringify(DataWithoutIniT),
