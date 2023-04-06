@@ -154,9 +154,9 @@ function DropingSlider() {
                                     <p className='DropingSliderLeftTitleMain'>Flavor</p>
                                     <p className='DropingSliderLeftTitleMain'>Savor</p>
                                     <span className='DropingSliderLeftTitleSub'>焦糖滋味</span>
-                                    <span className='DropingSliderLeftText'>我是介紹詞www</span>
-                                    <span className='DropingSliderLeftText'>我是介紹詞</span>
-                                    <span className='DropingSliderLeftText'>我是介紹詞</span>
+                                    <span className='DropingSliderLeftText'>經典焦糖</span>
+                                    <span className='DropingSliderLeftText'>微甜帶苦</span>
+                                    <span className='DropingSliderLeftText'>是絕妙搭配</span>
 
                                 </div>
                                 <div ref={sugarele} className='DropingSliderLeftButtonSec'>
