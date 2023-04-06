@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {dataDel} from '../counter/CartSlice'
 import '../styles/ant.css'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 //table 欄位名稱
 const columns = [
     {
@@ -66,7 +67,8 @@ const CartTable = () => {
     
     return (
         <div>
-            <div
+                      {
+                Data.length===1 ?(null):(  <div
                 style={{
                     marginBottom: 16,
                 }}
@@ -87,9 +89,11 @@ const CartTable = () => {
                 >
                     {hasSelected ? `已選擇 ${selectedRowKeys.length} 項` : ''}
                 </span>
-            </div>
+            </div>)
+            }
+    
             {
-                Data.length===1 ?(<p>購物車無資料</p>):( <Table rowSelection={rowSelection} columns={columns} dataSource={DataWithoutIniT} />)
+                Data.length===1 ?(<p style={{textAlign:'center'}}>是否忘記加入購物車了呢? 點我進入產品頁面選購喔</p>):( <Table rowSelection={rowSelection} columns={columns} dataSource={DataWithoutIniT} />)
             }
             {/* <Table rowSelection={rowSelection} columns={columns} dataSource={Data} /> */}
         

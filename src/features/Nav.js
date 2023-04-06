@@ -6,7 +6,8 @@ import arrowLeft from '../features/imgs/arrowLeft.svg'
 import arrowRight from '../features/imgs/arrowRight.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import homelogo from '../features/imgs/home.svg'
+import home from '../features/imgs/home.svg'
+import homelogo from '../features/imgs/homelogo.svg'
 
 
 
@@ -26,7 +27,8 @@ function Nav() {
                         <img src={arrowLeft}></img>
                     </div>
                     <Link to="/ProductList" >
-                        <p className={styles.navListItem}>木屋產品</p>
+                        <p className={styles.navListItem}>
+                        產品列表</p>
                     </Link>
                     <div className={styles.navArrorLeft}>
                         <img src={arrowRight}></img>

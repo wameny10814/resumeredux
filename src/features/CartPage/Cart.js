@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 function Cart() {
     const Data = useSelector(state => state.cartTotal.value)
     const DataWithoutIniT = Data.filter((data) => data.id !== 0)
+    
     // useEffect(() => {
     //     let totalPrice = DataWithoutIniT.map((data)=>data.total).reduce((a,b)=>a+b)
     //     console.log('totalPrice',totalPrice)
@@ -84,7 +85,8 @@ function Cart() {
                 {/* <Link to="/Checkout" >
                     
                 </Link> */}
-                <button onClick={checkout}>開始結帳</button>
+                {Data.length*1-1===0?null:(<button onClick={checkout}>開始結帳</button>)}
+                
             </div>
 
 
