@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/resume_redux/static/css/main.c96a51ec.css",
+    "main.js": "/resume_redux/static/js/main.136d6cc2.js",
+    "static/js/787.4a025f53.chunk.js": "/resume_redux/static/js/787.4a025f53.chunk.js",
+    "static/media/pancakeSliderPic.png": "/resume_redux/static/media/pancakeSliderPic.70552e581f19eed06991.png",
+    "static/media/homebanner.jpg": "/resume_redux/static/media/homebanner.3f385905aa6228986b86.jpg",
+    "static/media/strawberry.jpg": "/resume_redux/static/media/strawberry.aa3e1a96281a58f648f3.jpg",
+    "static/media/sugar.jpg": "/resume_redux/static/media/sugar.9da2fe3d3c93161030e6.jpg",
+    "static/media/macha.jpg": "/resume_redux/static/media/macha.6b985bc169d4c3efb1a6.jpg",
+    "static/media/banner.png": "/resume_redux/static/media/banner.ee9d4df3df0135aad932.png",
+    "static/media/runnungDonuts.png": "/resume_redux/static/media/runnungDonuts.adcb0e0e3276998ea123.png",
+    "static/media/strawberry.png": "/resume_redux/static/media/strawberry.f003a4c3d5b290543ca1.png",
+    "static/media/whitechoco.png": "/resume_redux/static/media/whitechoco.4c613a03f5b74c237081.png",
+    "static/media/mocha.png": "/resume_redux/static/media/mocha.52ba8932027b7eeebf44.png",
+    "static/media/soybean.png": "/resume_redux/static/media/soybean.c31d6a88f94585fae534.png",
+    "static/media/chocolate.png": "/resume_redux/static/media/chocolate.fa34afaa276d724d3a42.png",
+    "static/media/donut01.png": "/resume_redux/static/media/donut01.dccec12760c635305bfd.png",
+    "static/media/homebannerwalker.png": "/resume_redux/static/media/homebannerwalker.7414a891195bad1d4107.png",
+    "static/media/truefriends.svg": "/resume_redux/static/media/truefriends.a69dd7b1f8987b45422f6887426062f3.svg",
+    "static/media/homelogo.svg": "/resume_redux/static/media/homelogo.9d23c1efe694c3982ab42b8ef660d8f7.svg",
+    "static/media/logo.svg": "/resume_redux/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/home.svg": "/resume_redux/static/media/home.151b788adcbf2245d8177ada4c9e568b.svg",
+    "index.html": "/resume_redux/index.html",
+    "static/media/heart.svg": "/resume_redux/static/media/heart.45015637dbcb7e7985eb24e0d5d6b9d5.svg",
+    "static/media/arrowLeft.svg": "/resume_redux/static/media/arrowLeft.d87de6c20a473853be28ec586cb14953.svg",
+    "static/media/arrowRight.svg": "/resume_redux/static/media/arrowRight.928a2f252846dc7f67e86dfd50157546.svg",
+    "main.c96a51ec.css.map": "/resume_redux/static/css/main.c96a51ec.css.map",
+    "main.136d6cc2.js.map": "/resume_redux/static/js/main.136d6cc2.js.map",
+    "787.4a025f53.chunk.js.map": "/resume_redux/static/js/787.4a025f53.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c96a51ec.css",
+    "static/js/main.136d6cc2.js"
+  ]
+}
