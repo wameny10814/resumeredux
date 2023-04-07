@@ -19,7 +19,7 @@
     width: 50vw;
     display: flex;
     justify-content: space-evenly;
-    align-items: baseline;
+    align-items: center;
 }
 .forgotAddCartDirectFLEX{
     display: flex;

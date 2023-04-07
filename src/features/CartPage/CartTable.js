@@ -98,7 +98,7 @@ const CartTable = () => {
                     <div className={styles.forgotAddCart}>
                         <div className={styles.forgotAddCartpic}>
                             <div className={styles.forgotAddCartDirectFLEX} >
-                                <span>Click to ProductList</span>
+                                <span>Oops! CartList is still empty!<br></br> Click to ProductList</span>
                                 <div className={styles.forgotAddCartDirecpic}>
                                     <img  src={ArrowRight}></img>
                                 </div>
