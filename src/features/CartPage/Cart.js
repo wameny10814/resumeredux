@@ -39,10 +39,10 @@ function Cart() {
     // },
 
     const checkout = () => {
-        console.log('DataWithoutIniT', DataWithoutIniT);
+        // console.log('DataWithoutIniT', DataWithoutIniT);
 
         let bodyformat = DataWithoutIniT;
-        console.log('bodyformat',bodyformat);
+        // console.log('bodyformat',bodyformat);
     //    delete bodyformat[0].incre;
         fetch('http://localhost:3500/admin2/checkout', {
             method: 'POST',
@@ -63,30 +63,27 @@ function Cart() {
                 <p></p>
             </div>
             <CartTable></CartTable>
-            {DataWithoutIniT.length === 0 ? null : (
-                <div className={styles.totalSec}>
-                    <div className={styles.totalTitle}>
-                        <p>總計</p>
-                    </div>
-                    <div className={styles.totalDetailSec}>
-                        <div className={styles.totaltitleSec}>
-                            <span className={styles.totalDetailTitle}>總項目</span>
-                            <span className={styles.totalDetail}>{Data.length - 1}項</span>
+            <div className={styles.chekoutSec}>
+                {DataWithoutIniT.length === 0 ? null : (
+                    <div className={styles.totalSec}>
+                        <div className={styles.totalTitle}>
+                            <p>總計</p>
                         </div>
-                        <div className={styles.totaltitleSec}>
-                            <span className={styles.totalDetailTitle}>總金額</span>
-                            <span className={styles.totalDetail}>{DataWithoutIniT.length === 0 ? null : DataWithoutIniT.map((data) => data.total * 1).reduce((a, b) => a + b)} 元</span>
+                        <div className={styles.totalDetailSec}>
+                            <div className={styles.totaltitleSec}>
+                                <span className={styles.totalDetailTitle}>總項目</span>
+                                <span className={styles.totalDetail}>{Data.length - 1}項</span>
+                            </div>
+                            <div className={styles.totaltitleSec}>
+                                <span className={styles.totalDetailTitle}>總金額</span>
+                                <span className={styles.totalDetail}>{DataWithoutIniT.length === 0 ? null : DataWithoutIniT.map((data) => data.total * 1).reduce((a, b) => a + b)} 元</span>
+                            </div>
                         </div>
                     </div>
+                )}
+                <div className={styles.checkoutBTNSec}>
+                    {Data.length*1-1===0?null:(<button className={styles.checkoutBTN} onClick={checkout}>開始結帳</button>)}
                 </div>
-
-            )}
-            <div>
-                {/* <Link to="/Checkout" >
-                    
-                </Link> */}
-                {Data.length*1-1===0?null:(<button onClick={checkout}>開始結帳</button>)}
-                
             </div>
 
 

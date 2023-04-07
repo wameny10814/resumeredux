@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { dataDel } from '../counter/CartSlice'
 import styles from '../styles/CartTable.module.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { div } from 'prelude-ls';
 import emptycart from '../imgs/emptycart.svg';
 import ArrowRight from '../imgs/arrowRight.svg';
 //table 欄位名稱
@@ -52,7 +51,7 @@ const CartTable = () => {
 
     }
     const onSelectChange = (newSelectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+        // console.log('selectedRowKeys changed: ', newSelectedRowKeys);
         setSelectedRowKeys(newSelectedRowKeys);
 
     };
@@ -64,7 +63,7 @@ const CartTable = () => {
 
     useEffect(() => {
         setDataList(Data);
-        console.log('datalist', DataList.length);
+        // console.log('datalist', DataList.length);
     }, []);
 
     return (
@@ -111,7 +110,7 @@ const CartTable = () => {
                             </Link>
                         </div>
                     </div>
-                ) : (<Table rowSelection={rowSelection} columns={columns} dataSource={DataWithoutIniT} />)
+                ) : (<Table rowSelection={rowSelection} pagination={{ pageSize: 5}}  columns={columns} dataSource={DataWithoutIniT} />)
             }
 
         </div>
