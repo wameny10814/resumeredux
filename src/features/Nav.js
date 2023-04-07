@@ -53,7 +53,7 @@ function Nav() {
                     <div className={styles.navArrorLeft}>
                         <img src={arrowLeft}></img>
                     </div>
-                    <Link to="/">
+                    <Link to="/resumeredux">
                         <p className={styles.navListItem}>會員系統</p>
                     </Link>
                     <div className={styles.navArrorLeft}>
@@ -64,14 +64,14 @@ function Nav() {
                     <div className={styles.navArrorLeft}>
                         <img src={arrowLeft}></img>
                     </div>
-                    <p className={styles.navListItem}>聯絡我們</p>
+                    <a href='#' className={styles.navListItem}>聯絡我們</a>
                     <div className={styles.navArrorLeft}>
                         <img src={arrowRight}></img>
                     </div>
                 </div>
             </div>
 
-            <Link to="/" className={styles.homelogo}>
+            <Link to="/resumeredux" className={styles.homelogo}>
                 <img className={styles.homeimg} src={homelogo}></img>
             </Link>
 

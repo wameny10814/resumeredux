@@ -1,0 +1,43 @@
+.forgotAddCart{
+    color:rgb(94, 67, 50);
+    text-align: center;
+}
+.forgotAddCartlink{
+    margin: auto;
+    width: 300px;
+}
+.forgotAddCartlink img{
+    text-align: center;
+    width: 100%;
+}
+.forgotAddCartsub{
+    font-weight: 500;
+    font-size: large;
+}
+.forgotAddCartpic{
+    margin: auto;
+    width: 50vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+.forgotAddCartDirectFLEX{
+    display: flex;
+}
+.forgotAddCartDirecpic{
+    margin-left: 1rem;
+    width: 30px;
+    animation: arrowRuning 3s linear infinite;
+}
+.forgotAddCartDirecpic img{
+    width: 100%;
+}
+
+@keyframes arrowRuning {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }

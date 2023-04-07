@@ -60,7 +60,7 @@ function Cart() {
     return (
         <div className={styles.cartSec}>
             <div className={styles.title}>
-                <h3>購物車清單</h3>
+                <p></p>
             </div>
             <CartTable></CartTable>
             {DataWithoutIniT.length === 0 ? null : (
