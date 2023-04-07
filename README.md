@@ -12,5 +12,5 @@
 
 
 #前端使用技術
-React、Redux、Java Script、HTML、CSS
-Ant Design
+React、Redux、Java Script、HTML、CSS、Ant Design
+
