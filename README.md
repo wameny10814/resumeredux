@@ -6,7 +6,7 @@
  - 產品列表加入購物車存入Redux state資料
  ![ProductList](https://user-images.githubusercontent.com/104507463/230574240-d9d93b6d-b373-484b-a9c3-219b955a21db.png)
  
-  - 購物車清單CRUD 及結帳進入LINE PAY(詳見後端github server)
+  - 購物車清單CRUD 及結帳進入LINE PAY(詳見後端github server: https://github.com/wameny10814/resumebackendpay/blob/main/routes/admin2.js)
  ![Cart](https://user-images.githubusercontent.com/104507463/230574179-698b75a7-e0ab-4940-b5ec-b130ed30191d.png)
  ![linepay](https://user-images.githubusercontent.com/104507463/230842787-809ec081-8a4f-4aa3-b653-aa6b79206d43.png)
  ![linepayconfirmed](https://user-images.githubusercontent.com/104507463/230842835-cd838b02-ec6e-4b59-9361-8d1fb1e3ddd7.png)
