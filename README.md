@@ -8,6 +8,11 @@
  
   - 購物車清單CRUD 及結帳進入LINE PAY(詳見後端github server)
  ![Cart](https://user-images.githubusercontent.com/104507463/230574179-698b75a7-e0ab-4940-b5ec-b130ed30191d.png)
+ ![linepay](https://user-images.githubusercontent.com/104507463/230842787-809ec081-8a4f-4aa3-b653-aa6b79206d43.png)
+ ![linepayconfirmed](https://user-images.githubusercontent.com/104507463/230842835-cd838b02-ec6e-4b59-9361-8d1fb1e3ddd7.png)
+
+
+ 
 
 
 
