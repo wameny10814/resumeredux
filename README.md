@@ -11,7 +11,7 @@
  ![linepay](https://user-images.githubusercontent.com/104507463/230842787-809ec081-8a4f-4aa3-b653-aa6b79206d43.png)
  ![linepayconfirmed](https://user-images.githubusercontent.com/104507463/230842835-cd838b02-ec6e-4b59-9361-8d1fb1e3ddd7.png)
  
- -聯絡我們 後端使用nodemailer，建立transporter，達成user輸入個人email、name 及信件內容，發送信件至客服信箱
+ -聯絡我們 後端使用nodemailer，建立transporter，達成user輸入個人email、name 及信件內容，發送信件至客服信箱 (詳見後端github server: https://github.com/wameny10814/resumebackendpay/blob/main/routes/admin2.js)
  ![localhost_3000_Contactus](https://user-images.githubusercontent.com/104507463/231121067-e5561eea-07a6-417b-9bfd-34c4080c6158.png)
 
 
