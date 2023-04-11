@@ -28,7 +28,7 @@ function Nav() {
                     </div>
                     <Link to="/ProductList" >
                         <p className={styles.navListItem}>
-                        產品列表</p>
+                            產品列表</p>
                     </Link>
                     <div className={styles.navArrorLeft}>
                         <img src={arrowRight}></img>
@@ -64,7 +64,9 @@ function Nav() {
                     <div className={styles.navArrorLeft}>
                         <img src={arrowLeft}></img>
                     </div>
-                    <a href='#' className={styles.navListItem}>聯絡我們</a>
+                    <Link to="/Contactus">
+                        <p href='#' className={styles.navListItem}>聯絡我們</p>
+                    </Link>
                     <div className={styles.navArrorLeft}>
                         <img src={arrowRight}></img>
                     </div>

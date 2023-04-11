@@ -1,0 +1,69 @@
+/* *{
+    outline: 1px solid blue;
+} */
+.bannerSec{
+    height: 500px;
+    overflow: hidden;
+    background-image: url(../imgs/contact.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    
+}
+.bannerSec h2{
+    color: white;
+    font-size: 40px;
+    height: 400px;
+    text-align: center;
+    margin-top: 150px;
+}
+.form{
+    text-align: center;
+    margin: 5rem auto;
+}
+.formitmeSec{
+    margin-bottom: 2rem;
+}
+.formitmeTitle{
+   margin: 0;
+   width: 25vw;
+   margin: auto;
+   text-align: left;
+   color: rgb(158, 129, 111);
+}
+.formitmeInput{
+    width: 25vw;
+    height: 3vh;
+    border-radius: .25rem;
+    border: 1px solid rgb(158, 129, 111);
+    box-shadow: 0 0 0.25em  rgba(67,71,85,0.27), 2px 0.25em 24px 0 rgba(90,125,188,0.05);
+    padding: 10px;
+}
+.formitmeInput :focus{
+    box-shadow: 0 15px 25px  rgba(0,0,0,0.15), 0 5px 10px  rgba(0,0,0,0.05);
+}
+
+.formitmeTextArea{
+    width: 25vw;
+    height: 25vh;
+    border-radius: .25rem;
+    border: 1px solid rgb(158, 129, 111);
+    box-shadow: 0 0 0.25em  rgba(67,71,85,0.27), 2px 0.25em 24px 0 rgba(90,125,188,0.05);
+    padding: 10px;
+
+}
+.formitmeTextArea :focus{
+    box-shadow: 0 15px 25px  rgba(0,0,0,0.15), 0 5px 10px  rgba(0,0,0,0.05);
+}
+.formsubmit{
+    border: none;
+    width: 25vw;
+    height: 3rem;
+    border-radius: 15px;
+    background-color: rgb(255, 228, 196);
+    padding: 3px 10px;
+}
+.formsubmit:hover{
+    background-color: rgba(255, 228, 196, 0.603);
+    transition: .5s;
+}
