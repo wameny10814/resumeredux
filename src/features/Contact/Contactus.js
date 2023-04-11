@@ -16,10 +16,22 @@ function Contactus() {
         setMyform({ ...myform, [id]: val });
     };
 
-    const submitemail = (event)=>{
+    const submitemail = (event) => {
         event.preventDefault();
-        console.log('submit',myform)
+        // console.log('submit', myform);
         //fetch to backend
+        fetch('http://localhost:3500/admin2/contactus', {
+            method: 'POST',
+            body: JSON.stringify(myform),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                console.log('result', result);
+            })
+            
     }
     return (
         <div>
@@ -30,16 +42,16 @@ function Contactus() {
             <form className={styles.form}>
                 <div className={styles.formitmeSec}>
                     <p className={styles.formitmeTitle}>聯絡人</p>
-                    <input className={styles.formitmeInput} onChange={changeFields} value={myform.name}   id="name"></input>
+                    <input className={styles.formitmeInput} onChange={changeFields} value={myform.name} id="name"></input>
                 </div>
                 <div className={styles.formitmeSec}>
                     <p className={styles.formitmeTitle}>電子信箱</p>
-                    <input className={styles.formitmeInput} onChange={changeFields} value={myform.email}   id="email"></input>
+                    <input className={styles.formitmeInput} onChange={changeFields} value={myform.email} id="email"></input>
                 </div>
                 <div className={styles.formitmeSec}>
                     <p className={styles.formitmeTitle}>備註</p>
                     <textarea className={styles.formitmeTextArea}
-                    onChange={changeFields} value={myform.context}   id="context"></textarea>
+                        onChange={changeFields} value={myform.context} id="context"></textarea>
                 </div>
                 <button className={styles.formsubmit} onClick={submitemail}>送出</button>
             </form>
