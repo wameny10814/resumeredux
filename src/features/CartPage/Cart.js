@@ -39,7 +39,7 @@ function Cart() {
     // },
 
     const checkout = () => {
-        // console.log('DataWithoutIniT', DataWithoutIniT);
+        console.log('DataWithoutIniT', DataWithoutIniT);
 
         let bodyformat = DataWithoutIniT;
         // console.log('bodyformat',bodyformat);
@@ -51,7 +51,7 @@ function Cart() {
         })
             .then((r) => r.json())
             .then((data) => {
-                console.log('data', data);
+                // console.log('data', data);
                 // setID(data.orderId);
                 window.location.assign(data.paymentUrl.web);
             })

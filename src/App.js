@@ -11,6 +11,7 @@ import Confirm from './features/Linepay/Confirm'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {  ConfigProvider } from 'antd';
 import Contactus from '../src/features/Contact/Contactus';
+import Login from './features/MeberPage/Login';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
           <Route path="Checkout" element={<Checkout />} />
           <Route path="linePay/confirm" element={<Confirm />} />
           <Route path="/Contactus" element={<Contactus />} />
+          <Route path="/Login" element={<Login />} />
+          
           
         </Routes>
         <Footer></Footer>

@@ -91,13 +91,6 @@ function PancakeSlider() {
             return () => {
                 window.removeEventListener('scroll', handleScroll);
             };
-
-
-
-
-
-
-
         })
     });
 

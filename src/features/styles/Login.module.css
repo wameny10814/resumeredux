@@ -1,0 +1,33 @@
+.bannerSec{
+    height:500px;
+    overflow: hidden;
+    background-image: url(../imgs/login.jpg);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+.title{
+    color:#fff;
+    margin-top:10rem;
+}
+
+input{
+    width: 300px;
+    height:35px;
+    padding-left:15px;
+}
+
+.inputsec{
+    margin-bottom:1.5rem;
+}
+
+.loginbtn{
+    border:1px solid transparent;
+    background:rgb(114, 107, 107);
+    color:#ffff;
+    border-radius:12px;
+    padding:0.5rem 1rem;
+    margin-top:3rem;
+}

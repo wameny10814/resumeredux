@@ -53,7 +53,7 @@ function Nav() {
                     <div className={styles.navArrorLeft}>
                         <img src={arrowLeft}></img>
                     </div>
-                    <Link to="/resumeredux">
+                    <Link to="/Login">
                         <p className={styles.navListItem}>會員系統</p>
                     </Link>
                     <div className={styles.navArrorLeft}>
