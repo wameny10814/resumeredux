@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {  ConfigProvider } from 'antd';
 import Contactus from '../src/features/Contact/Contactus';
 import Login from './features/MeberPage/Login';
+import ProductManage from './features/MeberPage/ProductManage';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="linePay/confirm" element={<Confirm />} />
           <Route path="/Contactus" element={<Contactus />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/ProductMange" element={<ProductManage />} />
           
           
         </Routes>

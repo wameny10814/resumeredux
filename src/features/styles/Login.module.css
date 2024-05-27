@@ -1,5 +1,5 @@
 .bannerSec{
-    height:500px;
+    height:90vh;
     overflow: hidden;
     background-image: url(../imgs/login.jpg);
     background-repeat: no-repeat;
@@ -29,5 +29,5 @@ input{
     color:#ffff;
     border-radius:12px;
     padding:0.5rem 1rem;
-    margin-top:3rem;
+    margin-top:3rem
 }
