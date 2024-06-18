@@ -13,35 +13,44 @@ import {  ConfigProvider } from 'antd';
 import Contactus from '../src/features/Contact/Contactus';
 import Login from './features/MeberPage/Login';
 import ProductManage from './features/MeberPage/ProductManage';
+import MemberCenter from './features/MeberPage/MerberCenter';
+//context
+import AuthContextProvider from '../src/features/MeberPage/AuthConextProvider';
 
 
 function App() {
   return (
-    <ConfigProvider
-      theme={{
-      token: {
-        colorPrimary: 'rgb(255, 228, 196)',
-      },
-    }}
-    >
-      <BrowserRouter>
-        <Nav></Nav>
-        <Routes>
-          <Route path="/resumeredux" element={<Home />} />
-          <Route path="/ProductList" element={<ProductList />} />
-          <Route path="Cart" element={<Cart />} />
-          <Route path="Counter" element={<Counter />} />
-          <Route path="Checkout" element={<Checkout />} />
-          <Route path="linePay/confirm" element={<Confirm />} />
-          <Route path="/Contactus" element={<Contactus />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/ProductMange" element={<ProductManage />} />
-          
-          
-        </Routes>
-        <Footer></Footer>
-      </BrowserRouter>
-    </ConfigProvider>
+    <AuthContextProvider>
+       <ConfigProvider
+        theme={{
+        token: {
+          colorPrimary: 'rgb(255, 228, 196)',
+        },
+      }}
+      >
+        <BrowserRouter>
+          <Nav></Nav>
+          <Routes>
+            <Route path="/resumeredux" element={<Home />} />
+            <Route path="/ProductList" element={<ProductList />} />
+            <Route path="Cart" element={<Cart />} />
+            <Route path="Counter" element={<Counter />} />
+            <Route path="Checkout" element={<Checkout />} />
+            <Route path="linePay/confirm" element={<Confirm />} />
+            <Route path="/Contactus" element={<Contactus />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/ProductMange" element={<ProductManage />} />
+            <Route path="/MemberCenter" element={<MemberCenter />} />
+
+            
+            
+            
+          </Routes>
+          <Footer></Footer>
+        </BrowserRouter>
+      </ConfigProvider>
+    </AuthContextProvider>
+   
   )
 }
 

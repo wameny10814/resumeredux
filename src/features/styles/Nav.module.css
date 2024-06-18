@@ -30,6 +30,7 @@
 }
 .navListItem{
     margin-top: 1.5rem;
+    cursor:pointer;
 }
 .navLink :hover + .navArrorLeft{
   opacity: 1;

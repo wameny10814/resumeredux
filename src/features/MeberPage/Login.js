@@ -1,13 +1,17 @@
 import React from 'react'
 import { useState, useContext, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../MeberPage/AuthContext';
 import styles from '../styles/Login.module.css';
 
 function Login() {
       //設定登入資料
     const [myform, setMyform] = useState({
-        account: '',
+        username: '',
         password: '',
     });
+    const navigate = useNavigate();
+    const { setAuth } = useContext(AuthContext);
 
 
     const changeFields = (event) => {
@@ -18,31 +22,34 @@ function Login() {
     };
 
     const whenSubmit = (event) => {
-    event.preventDefault();
-
-    console.log(myform);
-
-    fetch('http://localhost:3500/admin2/logindesu', {
-        method: 'POST',
-        body: JSON.stringify(myform),
-        headers: {
-        'Content-Type': 'application/json',
-        },
-    })
-        .then((r) => r.json())
-        .then((result) => {
-        console.log('result', result);
-        //result為
-        //success:true/false
-        //data:sid,account,levle,token
-        if(result.success == true){
-            alert('成功')
-        }else{
-            alert('登入失敗')
-        }
-
-        });
-    };
+        event.preventDefault();
+    
+        console.log(myform);
+    
+        fetch('https://ec-course-api.hexschool.io/v2/admin/signin', {
+            method: 'POST',
+            body: JSON.stringify(myform),
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        })
+            .then((r) => r.json())
+            .then((result) => {
+            if(result.message == '登入成功'){
+                const { token, expired } = result;
+                document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
+                localStorage.setItem('auth', JSON.stringify(result));
+                navigate('/resumeredux');
+                setAuth({
+                    ...result,
+                    authorized: true,
+                  });
+            }else{
+                alert('登入失敗')
+            }
+    
+            });
+        };
     return (
         <div>
             <div className={styles.bannerSec}>
@@ -50,7 +57,7 @@ function Login() {
                 <div  className={styles.inputsec}>
                   
                     <input
-                        id="account"
+                        id="username"
                         name="account"
                         type="text"
                         value={myform.account}
@@ -60,7 +67,7 @@ function Login() {
             <div className={styles.inputsec}>
           
                 <input
-                id="password"
+                    id="password"
                     type='text'
                     name="passwrod"
                     onChange={changeFields}

@@ -82,7 +82,7 @@ function Cart() {
                     </div>
                 )}
                 <div className={styles.checkoutBTNSec}>
-                    {Data.length*1-1===0?null:(<button className={styles.checkoutBTN} onClick={checkout}>開始結帳</button>)}
+                    {Data.length*1-1===0?null:(<button className={styles.checkoutBTN} onClick={checkout}>開始結帳(Linepay)</button>)}
                 </div>
             </div>
 
