@@ -14,6 +14,8 @@ import Contactus from '../src/features/Contact/Contactus';
 import Login from './features/MeberPage/Login';
 import ProductManage from './features/MeberPage/ProductManage';
 import MemberCenter from './features/MeberPage/MerberCenter';
+import ReceiveForm from './features/CartPage/ReceiveForm';
+
 //context
 import AuthContextProvider from '../src/features/MeberPage/AuthConextProvider';
 
@@ -41,6 +43,9 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/ProductMange" element={<ProductManage />} />
             <Route path="/MemberCenter" element={<MemberCenter />} />
+            <Route path="/ReceiveForm" element={<ReceiveForm />} />
+
+            
 
             
             

@@ -19,7 +19,6 @@ function ProductList() {
     const count = useSelector(state => state.counter.value)
     const Data = useSelector(state => state.cartTotal.value)
     
-
     const FakeData = [
         {
             "name": "原味波堤",

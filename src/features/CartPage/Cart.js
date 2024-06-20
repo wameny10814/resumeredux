@@ -84,6 +84,11 @@ function Cart() {
                 <div className={styles.checkoutBTNSec}>
                     {Data.length*1-1===0?null:(<button className={styles.checkoutBTN} onClick={checkout}>開始結帳(Linepay)</button>)}
                 </div>
+                <div>
+                    <Link to="/ReceiveForm">
+                        <p>下一步</p>
+                    </Link>
+                </div>
             </div>
 
 

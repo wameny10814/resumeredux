@@ -62,6 +62,7 @@ export const CartSlice = createSlice({
         discountincrementByAmount: (state, action) => {
             state.value = action.payload * 500
         }
+      
     }
 })
 

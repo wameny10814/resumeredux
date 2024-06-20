@@ -75,9 +75,7 @@ function Login() {
                     placeholder="密碼"></input>
             </div>
             <div><button onClick={whenSubmit} className={styles.loginbtn}>登入</button></div>
-            </div>
-        
-            
+            </div>    
         </div>
     )
 }
