@@ -16,6 +16,8 @@ import ProductManage from './features/MeberPage/ProductManage';
 import MemberCenter from './features/MeberPage/MerberCenter';
 import ReceiveForm from './features/CartPage/ReceiveForm';
 
+import ProductDetail from './features/ProductList/ProductDetail';
+
 //context
 import AuthContextProvider from '../src/features/MeberPage/AuthConextProvider';
 
@@ -34,7 +36,12 @@ function App() {
           <Nav></Nav>
           <Routes>
             <Route path="/resumeredux" element={<Home />} />
-            <Route path="/ProductList" element={<ProductList />} />
+  
+            <Route path="/ProductList" element={<ProductList />}/>
+        
+            <Route path="/ProductList">
+              <Route path=":productId" element={<ProductDetail />} />
+            </Route>
             <Route path="Cart" element={<Cart />} />
             <Route path="Counter" element={<Counter />} />
             <Route path="Checkout" element={<Checkout />} />

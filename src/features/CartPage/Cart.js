@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 function Cart() {
+    //從store拿取資料
     const Data = useSelector(state => state.cartTotal.value)
     const DataWithoutIniT = Data.filter((data) => data.id !== 0)
     

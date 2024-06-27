@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { DonutsData } from '../DonutsData'
+//reducer
 //設定dispatch 方法，設定邏輯 setstate
 export const CartSlice = createSlice({
     name: 'cart',
@@ -27,6 +28,7 @@ export const CartSlice = createSlice({
             // state.value = state.value.filter((user) => user.key !== 0);
             state.value.push(action.payload);
         },
+        //刪除該項目，
         dataDel: (state, action) => {
             // state.value=state.value.filter((user) => user.key !== action.payload.key);
             state.value = state.value.filter((user) => action.payload.key.includes(user.key) === false)
