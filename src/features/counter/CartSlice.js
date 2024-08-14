@@ -7,6 +7,7 @@ export const CartSlice = createSlice({
     initialState: {
         value: [
             {   
+                "orderid":0,
                 "id":0,
                 "key":0,
                 "name": '',
@@ -15,6 +16,11 @@ export const CartSlice = createSlice({
                 "total":'',
                 "incre":'',
                 "decre":'',
+                "firstname":'',
+                "lastname":'',
+                "email":'',
+                "address":'',
+                "orderdate":'',
             },
         ]
     },
@@ -63,12 +69,31 @@ export const CartSlice = createSlice({
         },
         discountincrementByAmount: (state, action) => {
             state.value = action.payload * 500
-        }
-      
+        },
+        inputotherinfo: (state, action) => {
+            state.value = state.value.map(cart => {
+                if (cart.key === 0) {
+                    return {
+                        ...cart,
+                        firstname: action.payload.firstname,
+                        lastname: action.payload.lastname,
+                        email: action.payload.email,
+                        address: action.payload.address,
+                        orderid: action.payload.orderid,
+                        orderdate: action.payload.orderdate,
+                        
+                    };
+                }
+                return cart;
+            });
+                        
+                    
+        },
+        
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { dataReset, addCart, dataDel, plus,deduction, discountincrementByAmount } = CartSlice.actions
+export const { dataReset, addCart, dataDel, plus,deduction, discountincrementByAmount,inputotherinfo } = CartSlice.actions
 
 export default CartSlice.reducer

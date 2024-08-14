@@ -39,24 +39,26 @@ function Cart() {
     //     ]
     // },
 
+   
+
     const checkout = () => {
-        console.log('DataWithoutIniT', DataWithoutIniT);
+        // console.log('DataWithoutIniT', DataWithoutIniT);
 
         let bodyformat = DataWithoutIniT;
         // console.log('bodyformat',bodyformat);
     //    delete bodyformat[0].incre;
-        fetch('http://localhost:3500/admin2/checkout', {
-            method: 'POST',
-            body: JSON.stringify(DataWithoutIniT),
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                // console.log('data', data);
-                // setID(data.orderId);
-                window.location.assign(data.paymentUrl.web);
-            })
+        // fetch('http://localhost:3500/admin2/checkout', {
+        //     method: 'POST',
+        //     body: JSON.stringify(DataWithoutIniT),
+        //     headers: { 'Content-Type': 'application/json' }
+        // })
+        //     .then((r) => r.json())
+        //     .then((data) => {
+        //         window.location.assign(data.paymentUrl.web);
+        //     })
     }
+
+  
     
     return (
         <div className={styles.cartSec}>

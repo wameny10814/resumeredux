@@ -24,44 +24,45 @@ import AuthContextProvider from '../src/features/MeberPage/AuthConextProvider';
 
 function App() {
   return (
+    
     <AuthContextProvider>
-       <ConfigProvider
-        theme={{
-        token: {
-          colorPrimary: 'rgb(255, 228, 196)',
-        },
-      }}
-      >
-        <BrowserRouter>
-          <Nav></Nav>
-          <Routes>
-            <Route path="/resumeredux" element={<Home />} />
-  
-            <Route path="/ProductList" element={<ProductList />}/>
+        <ConfigProvider
+          theme={{
+          token: {
+            colorPrimary: 'rgb(255, 228, 196)',
+          },
+        }}
+        >
+          <BrowserRouter>
+            <Nav></Nav>
+            <div style={{marginLeft:'10%',marginRight:'10%'}}>
+              <Routes >
+                <Route path="/resumeredux" element={<Home />} />
+      
+                <Route path="/ProductList" element={<ProductList />}/>
+            
+                <Route path="/ProductList">
+                  <Route path=":productId" element={<ProductDetail />} />
+                </Route>
+                <Route path="Cart" element={<Cart />} />
+                <Route path="Counter" element={<Counter />} />
+                <Route path="Checkout" element={<Checkout />} />
+                <Route path="linePay/confirm" element={<Confirm />} />
+                <Route path="/Contactus" element={<Contactus />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/ProductMange" element={<ProductManage />} />
+                <Route path="/MemberCenter" element={<MemberCenter />} />
+                <Route path="/ReceiveForm" element={<ReceiveForm />} />
+              </Routes>
+            </div>
         
-            <Route path="/ProductList">
-              <Route path=":productId" element={<ProductDetail />} />
-            </Route>
-            <Route path="Cart" element={<Cart />} />
-            <Route path="Counter" element={<Counter />} />
-            <Route path="Checkout" element={<Checkout />} />
-            <Route path="linePay/confirm" element={<Confirm />} />
-            <Route path="/Contactus" element={<Contactus />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/ProductMange" element={<ProductManage />} />
-            <Route path="/MemberCenter" element={<MemberCenter />} />
-            <Route path="/ReceiveForm" element={<ReceiveForm />} />
-
-            
-
-            
-            
-            
-          </Routes>
-          <Footer></Footer>
-        </BrowserRouter>
-      </ConfigProvider>
-    </AuthContextProvider>
+          
+            <Footer></Footer>
+          </BrowserRouter>
+        </ConfigProvider>
+      </AuthContextProvider>
+  
+  
    
   )
 }
