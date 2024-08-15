@@ -89,11 +89,32 @@ export const CartSlice = createSlice({
                         
                     
         },
+
+        deleteall: (state, action) => {
+            state.value =[
+                {   
+                    "orderid":0,
+                    "id":0,
+                    "key":0,
+                    "name": '',
+                    "quantity":0,
+                    "price": 0,
+                    "total":'',
+                    "incre":'',
+                    "decre":'',
+                    "firstname":'',
+                    "lastname":'',
+                    "email":'',
+                    "address":'',
+                    "orderdate":'',
+                }
+            ]
+        }
         
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { dataReset, addCart, dataDel, plus,deduction, discountincrementByAmount,inputotherinfo } = CartSlice.actions
+export const { dataReset, addCart, dataDel, plus,deduction, discountincrementByAmount,inputotherinfo,deleteall } = CartSlice.actions
 
 export default CartSlice.reducer
