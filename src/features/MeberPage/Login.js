@@ -21,51 +21,58 @@ function Login() {
     setMyform({ ...myform, [id]: val });
     };
 
-    const whenSubmit = (event) => {
-        event.preventDefault();
+  
     
-        console.log(myform);
-    
-        fetch('https://ec-course-api.hexschool.io/v2/admin/signin', {
+    const loginbtn = function(){
+        console.log('loginbtn');
+
+
+        fetch('http://localhost:3500/admin2/logindesu', {
             method: 'POST',
             body: JSON.stringify(myform),
             headers: {
             'Content-Type': 'application/json',
             },
         })
-            .then((r) => r.json())
-            .then((result) => {
-            if(result.message == '登入成功'){
-                const { token, expired } = result;
-                document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
+        .then((r) => r.json())
+        .then((result) => {
+            console.log(result);
+            console.log('myform',myform);
+
+            if(result.success == true){
+
                 localStorage.setItem('auth', JSON.stringify(result));
                 navigate('/resumeredux');
                 setAuth({
                     ...result,
                     authorized: true,
-                  });
+                });
+
             }else{
-                alert('登入失敗')
+                alert('登入失敗，請檢查帳號密碼。')
             }
+        });
+        
+        
+    }
+
     
-            });
-        };
     return (
         <div>
             <div className={styles.bannerSec}>
                 <h2  className={styles.title}>登入</h2>
                 <div  className={styles.inputsec}>
-                  
+                
                     <input
                         id="username"
-                        name="account"
+                        name="username"
                         type="text"
                         value={myform.account}
                         onChange={changeFields}
                         placeholder="帳號"></input>
                 </div>
             <div className={styles.inputsec}>
-          
+        
                 <input
                     id="password"
                     type='text'
@@ -74,7 +81,7 @@ function Login() {
                     value={myform.password}
                     placeholder="密碼"></input>
             </div>
-            <div><button onClick={whenSubmit} className={styles.loginbtn}>登入</button></div>
+            <div><button onClick={loginbtn} className={styles.loginbtn}>登入</button></div>
             </div>    
         </div>
     )

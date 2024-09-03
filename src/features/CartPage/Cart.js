@@ -11,55 +11,6 @@ function Cart() {
     const Data = useSelector(state => state.cartTotal.value)
     const DataWithoutIniT = Data.filter((data) => data.id !== 0)
     
-    // useEffect(() => {
-    //     let totalPrice = DataWithoutIniT.map((data)=>data.total).reduce((a,b)=>a+b)
-    //     console.log('totalPrice',totalPrice)
-
-    // }, [Data])
-
-    //line pay products format
-    // {
-    //     amount: 1000,
-    //     currency: 'TWD',
-    //     orderId:'',
-    //     packages: [
-    //         {
-    //             id: 'donuts',
-    //             amount: 1000,
-    //             products: [
-    //                 {
-    //                     "id" : "PEN-B-001",
-    //                     "name" : "Pen Brown",
-    //                     "imageUrl" : "https://pay-store.line.com/images/pen_brown.jpg",
-    //                     "quantity" : 2,
-    //                     "price" : 500
-    //                 }
-    //             ]
-    //         }
-    //     ]
-    // },
-
-   
-
-    const checkout = () => {
-        // console.log('DataWithoutIniT', DataWithoutIniT);
-
-        let bodyformat = DataWithoutIniT;
-        // console.log('bodyformat',bodyformat);
-    //    delete bodyformat[0].incre;
-        // fetch('http://localhost:3500/admin2/checkout', {
-        //     method: 'POST',
-        //     body: JSON.stringify(DataWithoutIniT),
-        //     headers: { 'Content-Type': 'application/json' }
-        // })
-        //     .then((r) => r.json())
-        //     .then((data) => {
-        //         window.location.assign(data.paymentUrl.web);
-        //     })
-    }
-
-  
-    
     return (
         <div className={styles.cartSec}>
             <div className={styles.title}>
@@ -84,9 +35,7 @@ function Cart() {
                         </div>
                     </div>
                 )}
-                <div className={styles.checkoutBTNSec}>
-                    {Data.length*1-1===0?null:(<button className={styles.checkoutBTN} onClick={checkout}>開始結帳(Linepay)</button>)}
-                </div>
+            
                 <div>
                     <Link to="/ReceiveForm">
                         <p>下一步</p>

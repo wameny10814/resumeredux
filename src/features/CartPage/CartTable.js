@@ -1,12 +1,22 @@
 import { Button, Table } from 'antd';
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { addCart,plus,deduction } from '../counter/CartSlice'
 import { dataDel } from '../counter/CartSlice'
 import styles from '../styles/CartTable.module.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import emptycart from '../imgs/emptycart.svg';
 import ArrowRight from '../imgs/arrowRight.svg';
-//table 欄位名稱
+
+
+const CartTable = () => {
+    const Data = useSelector(state => state.cartTotal.value)
+    const DataWithoutIniT = Data.filter((data) => data.id !== 0)
+    let datafortable = [...DataWithoutIniT];
+
+    const dispatch = useDispatch();
+
+    //table 欄位名稱
 const columns = [
     {
         title: '項次',
@@ -23,6 +33,13 @@ const columns = [
     {
         title: '加項',
         dataIndex: 'incre',
+        render: (text, record) => (
+            <button 
+                style={{ border: 'none', borderRadius: '50%' }} 
+                onClick={()=>dispatch(plus({id:record.id*1}))}>
+                +
+            </button>
+        )
     },
     {
         title: '數量',
@@ -31,6 +48,13 @@ const columns = [
     {
         title: '減項',
         dataIndex: 'decre',
+        render: (text, record) => (
+            <button 
+                style={{ border: 'none', borderRadius: '50%' }} 
+                onClick={()=>dispatch(deduction({id:record.id*1}))}>
+                -
+            </button>
+        )
     },
     {
         title: '總價',
@@ -38,13 +62,33 @@ const columns = [
     },
 ];
 
-const CartTable = () => {
-    const Data = useSelector(state => state.cartTotal.value)
-    const DataWithoutIniT = Data.filter((data) => data.id !== 0)
+
+    let datasource = datafortable.map(element => {
+
+        console.log('element',element);
+  
+
+        const newElement = {
+            ...element, // Spread existing properties
+            incre : `<button style={{border:'none',borderRadius:'50%'}} onClick={()=>dispatch(plus({id:v.sid*1}))}>+</button>`,
+            decre : `<button  style={{border:'none',borderRadius:'50%'}}
+            onClick={()=>dispatch(deduction({id:v.sid*1}))}>-</button>`
+        
+        };
+    
+
+        return newElement;
+
+        
+        
+    });
+
+    console.log('DataWithoutIniT',DataWithoutIniT);
+    console.log('datasource',datasource);
     const [DataList, setDataList] = useState([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setLoading] = useState(false);
-    const dispatch = useDispatch()
+   
     const del = () => {
         dispatch(dataDel({ key: selectedRowKeys }));
         setSelectedRowKeys([]);

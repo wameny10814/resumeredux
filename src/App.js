@@ -10,6 +10,7 @@ import Checkout from './features/Linepay/Checkout'
 import Confirm from './features/Linepay/Confirm'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {  ConfigProvider } from 'antd';
+import 'bootstrap/dist/css/bootstrap.css';
 import Contactus from '../src/features/Contact/Contactus';
 import Login from './features/MeberPage/Login';
 import ProductManage from './features/MeberPage/ProductManage';
@@ -27,11 +28,7 @@ function App() {
     
     <AuthContextProvider>
         <ConfigProvider
-          theme={{
-          token: {
-            colorPrimary: 'rgb(255, 228, 196)',
-          },
-        }}
+        
         >
           <BrowserRouter>
             <Nav></Nav>

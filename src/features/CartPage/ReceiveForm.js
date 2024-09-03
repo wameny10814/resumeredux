@@ -23,64 +23,6 @@ function ReceiveForm() {
     const [paymentstatus, setPaymentStatus] = useState(false);
 
     const gotopay = ()=>{
-
-        const paydata = Data.map(function (value, index, array){
-            console.log('value',value.orderid);
-            console.log('array',array[0].orderid);
-            let ordercode = array[0].orderid;
-            return {
-                ...value,      
-                orderid: ordercode,  
-                firstname:array[0].firstname,
-                lastname:array[0].lastname,
-                email:array[0].email,
-                address:array[0].address,
-            };
-          });
-          console.log('paydata',paydata);
-
-     
-
-          const dataforgotopay = paydata.filter((data) => data.id !== 0);
-          console.log('dataforgotopay',dataforgotopay);
-
-
-        fetch('http://localhost:3500/admin2/gotopay', {
-            method: 'POST',
-            body: JSON.stringify(dataforgotopay),
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then((r) => r.json())
-            .then((data) => {
-
-                console.log('data',data);
-
-                fetch('http://localhost:3500/admin2/checkout', {
-                    method: 'POST',
-                    body: JSON.stringify(DataWithoutIniT),
-                    headers: { 'Content-Type': 'application/json' }
-                    })
-                .then((r) => r.json())
-                .then((data) => {
-                    // console.log('data', data);
-                    // setID(data.orderId);
-                    // window.location.assign(data.paymentUrl.web);
-                    setPaymentStatus(true);
-                    
-                })
-
-            })
-
-        
-
-    }
-
-    const checkout = () => {
-        addotherinfo();
-        gotopay();
-    }
-
-    const addotherinfo = () =>{
         console.log('addotherinfo',orderinfo.firstname);
         let date = new Date();
         let orderid =`${date.getFullYear()}${date.getMonth()}${date.getDate()}${Math.floor(Math.random() * 100000)}`;
@@ -110,21 +52,71 @@ function ReceiveForm() {
         }
         setSortedInfo(updatedData);
 
-        console.log('updatedData!!!!',updatedData);
 
+
+        const paydata = updatedData.map(function (value, index, array){
+
+            let ordercode = array[0].orderid;
+            return {
+                ...value,      
+                orderid: ordercode,  
+                firstname:array[0].firstname,
+                lastname:array[0].lastname,
+                email:array[0].email,
+                address:array[0].address,
+            };
+          });
         
+
+     
+
+          const dataforgotopay = paydata.filter((data) => data.id !== 0);
+         
+
+
+        fetch('http://localhost:3500/admin2/gotopay', {
+            method: 'POST',
+            body: JSON.stringify(dataforgotopay),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then((r) => r.json())
+            .then((data) => {
+
+                console.log('data',data);
+
+                fetch('http://localhost:3500/admin2/checkout', {
+                    method: 'POST',
+                    body: JSON.stringify(updatedData),
+                    headers: { 'Content-Type': 'application/json' }
+                    })
+                .then((r) => r.json())
+                .then((data) => {
+                    console.log('data2', data);
+                    // setID(data.orderId);
+                    window.location.assign(data.paymentUrl.web);
+                    // setPaymentStatus(true);
+                    
+                })
+
+            })
     }
+
+    const checkout = () => {
+        gotopay();
+    }
+
+ 
 
     const changeFields = (event) => {
         const id = event.target.id;
         const val = event.target.value;
-        // console.log({ id, val });
+        console.log({ id, val });
         setOrderInfo({ ...orderinfo, [id]: val });
         };
   return (
     <div>
       {paymentstatus === false ? ( 
-        <>
+        <> 
             <h2>收件人資訊</h2>
             <div>
                 <Row gutter={[0, 24]}>
@@ -144,12 +136,12 @@ function ReceiveForm() {
                     </Col>
                 </Row>
                 <div>
-                    <button onClick={checkout} type="">前往結帳(Linepay)</button>
+                    <button onClick={checkout} type="">前往結帳(Linepay){paymentstatus}</button>
                 </div>
             </div>
         </>
        ):(<Confirm sortedinfo={sortedinfo}></Confirm>)}
-       
+
     </div>
   )
 }
