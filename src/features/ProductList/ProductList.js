@@ -208,7 +208,6 @@ function ProductList() {
         getcurrentproductlist(1);
       },[]);
 
-      console.log('productsdata',productsdata);
 
 
     return (

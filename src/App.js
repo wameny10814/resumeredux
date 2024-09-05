@@ -17,6 +17,7 @@ import ProductManage from './features/MeberPage/ProductManage';
 import MemberCenter from './features/MeberPage/MerberCenter';
 import ReceiveForm from './features/CartPage/ReceiveForm';
 
+
 import ProductDetail from './features/ProductList/ProductDetail';
 
 //context
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/ProductMange" element={<ProductManage />} />
                 <Route path="/MemberCenter" element={<MemberCenter />} />
                 <Route path="/ReceiveForm" element={<ReceiveForm />} />
+                
               </Routes>
             </div>
         
