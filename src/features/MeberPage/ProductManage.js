@@ -4,7 +4,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addCart,plus,deduction } from '../counter/CartSlice'
 import styles from '../styles/ProductManage.module.css'
 import AddNewProduct from './AddNewProduct'
-import { Col, Row } from 'antd'
+import { Col, Row } from 'antd';
+import { Button, message, Popconfirm,Space } from 'antd';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 
@@ -12,7 +14,7 @@ function ProductManage() {
 
     const [productsdata, setProductData] = useState([]);
     const [openeditcom, setOpenEditCom] = useState('');
-    const [editinfo, seteEditInfo] = useState({status:false});
+    const [editinfo, seteEditInfo] = useState({status:0});
 
     const getsproducts = function(){
         fetch('http://localhost:3500/admin2/getproducts', {
@@ -38,14 +40,10 @@ function ProductManage() {
     }
 
     const openedit = function(item){
-        console.log('openedit',item);
         setOpenEditCom('edit');
-        seteEditInfo(item);
-
-        
+        seteEditInfo({...item});
     }
     const opeadd = function(){
-        console.log('add');
         setOpenEditCom('add');
         //按下新增清空edit sate 讓子層input value為空
         seteEditInfo({
@@ -57,6 +55,40 @@ function ProductManage() {
         });
     }
 
+    const deletetbn = function(sid){
+        console.log('deletetbn',sid);
+      
+    }
+
+    const confirm = (sid) => {
+        console.log(sid);
+        let data = {
+            sid:sid
+        }
+
+        fetch('http://localhost:3500/admin2/deleteproducs', {
+            method: 'DELETE',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            })
+            .then((r) => r.json())
+            .then((result) => {
+    
+                if(result.success == true){
+                    setOpenEditCom('');
+                    getsproducts();
+                    message.success('商品刪除完成');
+                    
+    
+                }else{
+                    console.log('err',result);
+                }
+            });
+      };
+ 
+
 
     useEffect(() => {
         getsproducts();
@@ -67,6 +99,11 @@ function ProductManage() {
     return (
     <div>
         <h2>商品管理</h2>
+        <div>
+            <Link to="/MemberCenter">
+                <p >報表管理</p>
+            </Link>
+        </div>
         <div>
             <div>
                 <Row>
@@ -82,14 +119,26 @@ function ProductManage() {
                         return (
 
                         <Row key={i}>
-                            <Col span={2} align="center"><span>{v.sid}</span></Col>
+                            <Col span={2} align="center" ><span>{v.sid}</span></Col>
                             <Col span={6} align="center"><span>{v.name}</span></Col>
                             <Col span={4} align="center"><span>{v.price}</span></Col>
                             <Col span={4} align="center"><span>{v.type}</span></Col>
                             <Col span={4} align="center"><span>{v.status}</span></Col>
                             <Col span={4} align="center">
-                                <button onClick={()=>openedit(v)}>編輯</button>
-                                <button>刪除</button>
+                            <Space>
+                            <Button onClick={()=>openedit(v)}>編輯</Button>
+                                <Popconfirm
+                                    title="刪除商品"
+                                    description="確認要刪除此商品嗎?"
+                                    onConfirm={()=>confirm(v.sid)}
+                                    okText="Yes"
+                                    cancelText="No"
+                                >
+                                    <Button danger>刪除</Button>
+                                </Popconfirm>
+
+                            </Space>
+                               
                             </Col>
                         </Row>
 
@@ -104,6 +153,7 @@ function ProductManage() {
             <p>{openeditcom}</p>
         </div>
         {openeditcom === 'add' || openeditcom === 'edit'?(<AddNewProduct openeditcom={openeditcom} setOpenEditCom={setOpenEditCom} getsproducts={getsproducts} editinfo={editinfo} seteEditInfo={seteEditInfo}></AddNewProduct>):<></>}
+    
         
     </div>
 )

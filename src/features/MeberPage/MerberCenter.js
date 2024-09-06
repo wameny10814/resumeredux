@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState, useContext, useRef,useEffect } from 'react';
-import { Bar,Line } from "react-chartjs-2";
+import { Bar,Line,Doughnut,Bubble,Radar   } from "react-chartjs-2";
 import Chart from 'chart.js/auto';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import { Col, Divider, Row,Pagination } from 'antd';
 
 function MerberCenter() {
 //for 初始畫面商品select option 的data
@@ -10,7 +12,10 @@ const [productsdata, setProductData] = useState([]);
 
 //處理初始畫面畫圖的時間區間
 
-const [drawingdata, setDrawingData] = useState({});
+const [drawingdata, setDrawingData] = useState({
+  startdate:'2024-01-01',
+  enddate:'2024-01-01'
+});
 
 //畫bar的chatjs 設定
 const [bardata,setBarData]=useState({
@@ -40,6 +45,49 @@ const [linerdata,setLinerData]=useState({
     }]
 
 })
+//缺資料
+const [generdata,setGenderData]=useState({
+
+  labels: ["F", "M"],
+  datasets: [
+    {
+      label: "銷售客群性別比",
+      backgroundColor: "rgba(154,178,96,0.5)",
+      hoverBackgroundColor: "rgba(154,178,96,1)",
+      //各品項數量，要對齊labels
+      data: [510, 615, 1215, 1481, 1055,500,-1100],
+    }]
+
+})
+//缺資料
+const [agedata,setAgeData]=useState({
+
+  labels: [],
+  datasets: [
+    {
+      label: "銷售客群年齡比",
+      backgroundColor: "rgba(154,178,96,0.5)",
+      hoverBackgroundColor: "rgba(154,178,96,1)",
+      //各品項數量，要對齊labels
+      data: [510, 615, 1215, 1481, 1055,500,-1100],
+    }]
+
+})
+//缺資料
+const [sectiondata,setSectionData]=useState({
+
+  labels: [],
+  datasets: [
+    {
+      label: "期間區域銷售數量趨勢圖",
+      backgroundColor: "rgba(154,178,96,0.5)",
+      hoverBackgroundColor: "rgba(154,178,96,1)",
+      //各品項數量，要對齊labels
+      data: [510, 615, 1215, 1481, 1055,500,-1100],
+    }]
+
+})
+
 
 
 const changeFields = (event) => {
@@ -91,17 +139,7 @@ const getproductlist = function(){
 }
 
   //line 圖資料結構
-let linerData ={
-  labels: ["A", "B", "C", "D", "E","D", "E"],
-  datasets: [
-    {
-      label: "label1",
-      backgroundColor: "rgba(154,178,96,0.5)",
-      hoverBackgroundColor: "rgba(154,178,96,1)",
-      //各品項數量，要對齊labels
-      data: [510, 615, 1215, 1481, 1055,500,-1100],
-    }]
-}
+
 
 const drawreport = function(){
 
@@ -118,6 +156,7 @@ const drawreport = function(){
   })
   .then((r) => r.json())
   .then((result) => {
+      console.log('result',result);
       if(result.success == true){
       setBarData({
 
@@ -146,6 +185,49 @@ const drawreport = function(){
             //各品項數量，要對齊labels
             data: result.linerData.data,
           }]
+
+      });
+
+      setAgeData({
+
+        labels: result.agesData.labels,
+        datasets: [
+          {
+            label: "年齡比",
+            backgroundColor: "rgba(154,178,96,0.5)",
+            hoverBackgroundColor: "rgba(154,178,96,1)",
+            //各品項數量，要對齊labels
+            data: result.agesData.data,
+          }]
+
+      });
+
+      setSectionData({
+
+        labels: result.sectionsData.labels,
+        datasets: [
+          {
+            label: "區域佔比",
+            backgroundColor: "rgba(154,178,96,0.5)",
+            hoverBackgroundColor: "rgba(154,178,96,1)",
+            //各品項數量，要對齊labels
+            data: result.sectionsData.data,
+          }]
+      });
+
+      setGenderData({
+
+        labels: result.genderData.labels,
+        datasets: [
+          {
+            label: "性別比",
+            backgroundColor: "rgba(154,178,96,0.5)",
+            hoverBackgroundColor: "rgba(154,178,96,1)",
+            //各品項數量，要對齊labels
+            data: result.genderData.data,
+          }]
+
+
 
       });
       
@@ -180,11 +262,11 @@ useEffect(() => {
         </div>
         <label>
           時間一
-          <input type="date"   onChange={changeFields} id="startdate"></input>
+          <input type="date"   onChange={changeFields} id="startdate" value={drawingdata.startdate}></input>
         </label>
         <label>
           時間二
-          <input type="date"   onChange={changeFields} id="enddate"></input>
+          <input type="date"   onChange={changeFields} id="enddate" value={drawingdata.enddate}></input>
         </label>
         <label>
           篩選品項
@@ -199,14 +281,24 @@ useEffect(() => {
           </select>
         </label>
 
-        <button onClick={drawreport}>畫圖</button>
-
         <div>
           <Bar type='bar'   data={bardata} />
         </div>
-        <div>
-          <Line type='line'  data={linerdata} />
-        </div>
+        <Row>
+          <Col span={12}>
+            <Doughnut type='Doughnut'  data={generdata}></Doughnut>
+
+          </Col>
+          <Col span={12}>
+            <Doughnut  type='Doughnut'  data={linerdata} />
+          </Col>
+        </Row>
+        <Row>
+        
+          <Col span={12}><Bar type='Bar'  data={agedata}></Bar></Col>
+          <Col span={12}><Line  type='line'  data={sectiondata}></Line></Col>
+        </Row>
+
         
     </div>
   )
