@@ -41,3 +41,18 @@
       transform: translateX(100%);
     }
   }
+.deleteCart{
+    border: 1px solid #ff4d4f;;
+    background-color:#fff;
+    color:#ff4d4f;
+    padding: 3px 10px;
+
+
+}
+
+.deleteCart:hover{
+    background-color:#ff4d4f;
+    color:#fff;
+
+    transition: .5s;
+}

@@ -21,12 +21,9 @@ function Login() {
     setMyform({ ...myform, [id]: val });
     };
 
-  
+
     
     const loginbtn = function(){
-        console.log('loginbtn');
-
-
         fetch('http://localhost:3500/admin2/logindesu', {
             method: 'POST',
             body: JSON.stringify(myform),
@@ -36,8 +33,8 @@ function Login() {
         })
         .then((r) => r.json())
         .then((result) => {
-            console.log(result);
-            console.log('myform',myform);
+            // console.log(result);
+            // console.log('myform',myform);
 
             if(result.success == true){
 

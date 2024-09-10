@@ -29,10 +29,16 @@ export const CartSlice = createSlice({
             state.value = state.value.filter((user) => user.key !== 0);
         },
         addCart: (state, action) => {
-            // state.value.push(1);
-            // state.value.push(1).reduce((a,b)=>a+b)
-            // state.value = state.value.filter((user) => user.key !== 0);
-            state.value.push(action.payload);
+            //先檢查現在的購物車清單裡面有沒有相同品項
+            let filtter =  state.value.find((user) =>user.id == action.payload.id);
+                if (filtter) {
+                    filtter.quantity += action.payload.quantity;
+                    
+                }else{
+                    state.value.push(action.payload);
+                }
+        
+            
         },
         //刪除該項目，
         dataDel: (state, action) => {

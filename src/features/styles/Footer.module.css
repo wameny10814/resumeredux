@@ -1,9 +1,10 @@
 .footer{
     height: 3rem;
     /* background-color: rgb(255, 228, 196); */
-    background-color: #edd3a3;
+    background-color: #414666;
     padding: .5rem;
 }
 .footerwords{
     text-align: center;
+    color:#fff;
 }

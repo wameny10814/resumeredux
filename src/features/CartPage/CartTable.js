@@ -20,7 +20,8 @@ const CartTable = () => {
 const columns = [
     {
         title: '項次',
-        dataIndex: 'id',
+        dataIndex: 'index',
+        render: (text, record, index) => index + 1, 
     },
     {
         title: '品名',
@@ -65,8 +66,7 @@ const columns = [
 
     let datasource = datafortable.map(element => {
 
-        console.log('element',element);
-  
+        // console.log('element',element);
 
         const newElement = {
             ...element, // Spread existing properties
@@ -88,7 +88,7 @@ const columns = [
     const [DataList, setDataList] = useState([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setLoading] = useState(false);
-   
+
     const del = () => {
         dispatch(dataDel({ key: selectedRowKeys }));
         setSelectedRowKeys([]);
@@ -118,13 +118,7 @@ const columns = [
                         marginBottom: 16,
                     }}
                 >
-                    <button style={{
-                        marginBottom: 16,
-                        border: 'none',
-                        borderRadius: '30px',
-                        backgroundColor: '#F2A99B',
-                        color: 'white'
-                    }} type="primary" onClick={del} disabled={!hasSelected} loading={loading}>
+                    <button className={styles.deleteCart} type="primary" onClick={del} disabled={!hasSelected} loading={loading}>
                         自購物車刪除
                     </button>
                     <span

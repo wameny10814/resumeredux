@@ -19,7 +19,8 @@ function Cart() {
             <CartTable></CartTable>
             <div className={styles.chekoutSec}>
                 {DataWithoutIniT.length === 0 ? null : (
-                    <div className={styles.totalSec}>
+                 
+                <>   <div className={styles.totalSec}>
                         <div className={styles.totalTitle}>
                             <p>總計</p>
                         </div>
@@ -34,13 +35,15 @@ function Cart() {
                             </div>
                         </div>
                     </div>
+
+                        
+                    <div>
+                        <Link to="/ReceiveForm">
+                            <button className={styles.nextstep}>下一步</button>
+                        </Link>
+                    </div></>
                 )}
             
-                <div>
-                    <Link to="/ReceiveForm">
-                        <p>下一步</p>
-                    </Link>
-                </div>
             </div>
 
 
