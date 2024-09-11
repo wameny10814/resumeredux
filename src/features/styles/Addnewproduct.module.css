@@ -1,6 +1,58 @@
 .formtitle{
     font-size: 1.25rem;
+    margin-right:.5rem;
+    font-weight: 600;
 }
 .des{
     width: 95%;
+}
+.addnewproduct{
+    background-color: #fff;
+    padding:3rem;
+}
+
+.addnewtitle{
+    margin-bottom:3rem;
+}
+
+.inputstyles, .textareastyles{
+    border:1px solid #d9d9d9;
+}
+.textareastyles{
+    width:100%;
+    margin-top:1rem;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 150px;
+}
+.inputstyles:hover{
+    border:1px solid #AC7355;
+
+}
+.textareastyles:hover{
+    border:1px solid #AC7355;
+ 
+}
+.rowsstyles{
+    margin-bottom:1.5rem;
+    margin-top:1.5rem;
+}
+
+.addsec{
+    text-align: end;
+    margin-top:3rem;
+    margin-bottom:3rem;
+}
+.sumitbtn{
+    border: 1px solid #AC7355;
+    background-color:#fff;
+    color:#AC7355;
+    width: 10vw;
+    padding: 3px 10px;
+}
+.sumitbtn:hover{
+    background-color:#AC7355;
+    color:#fff;
+    transform: scale(1.2);
+    transition: .5s;
 }

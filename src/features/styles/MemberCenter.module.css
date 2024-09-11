@@ -1,0 +1,58 @@
+.membercenter{
+
+    padding-bottom:3rem;
+}
+.flexs{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.searchingbar{
+    background-color: #f5f5f5;
+    padding:1.5rem 3rem;
+}
+.selectstyles{
+    height: 35px;
+    border:1px solid #d9d9d9;
+    margin-left:.5rem;
+}
+.lablesstyles{
+    display: inline-block;
+    margin-right:1rem;
+}
+.inputstyles{
+    margin-left:.5rem;
+    border:1px solid #d9d9d9;
+}
+.inputstyles:hover{
+    border:1px solid #AC7355;
+}
+.selectstyles:hover{
+    border:1px solid #AC7355;
+}
+
+.charttitles{
+    font-size: 1.25rem;;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.rowsmid{
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+.linkbtn{
+    border: 1px solid #AC7355;
+    background-color:#fff;
+    color:#AC7355;
+    width: 10vw;
+    padding: 3px 10px;
+}
+
+.linkbtn:hover{
+    background-color:#AC7355;
+    color:#fff;
+    transform: scale(1.2);
+    transition: .5s;
+}

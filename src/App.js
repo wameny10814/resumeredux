@@ -32,7 +32,7 @@ function App() {
            theme={{
             token: {
               //antdesign 主色調
-              colorPrimary: '#414666',
+              colorPrimary: '#AC7355',
             },
           }}
         

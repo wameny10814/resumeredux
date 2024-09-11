@@ -1,7 +1,7 @@
 import TextArea from 'antd/es/input/TextArea'
 import styles from '../styles/Addnewproduct.module.css'
 import React from 'react'
-import { Col, Row } from 'antd';
+import { Col, Row,Switch  } from 'antd';
 import { useState,useEffect } from 'react'
 
 
@@ -19,7 +19,8 @@ function AddNewProduct(props) {
     };
 
     const statusController = function(event){
-        const statusval = event.target.checked ? "1" : "0"; // 轉換為 "1" 或 "0"
+        // const statusval = event.target.checked ? "1" : "0";  // 轉換為 "1" 或 "0"
+        const statusval = event ? "1" : "0";
         seteEditInfo({ ...editinfo, status: statusval });
     }
  
@@ -64,39 +65,39 @@ function AddNewProduct(props) {
     } 
 
     return (
-        <div>
+        <div className={styles.addnewproduct}>
 
-            <h2>商品資料</h2>
+            <h2 className={styles.addnewtitle}>上架資料</h2>
             
-            <p>{openeditcom}</p>
-            <p>{editinfo.name}</p>
-            <Row>
+            {/* <p>{openeditcom}</p>
+            <p>{editinfo.name}</p> */}
+            <Row >
                 <Col span={8}>
                     <label>
                         <span className={styles.formtitle}>品名</span>
-                        <input onChange={changeFields} id="name" value={editinfo.name}></input>
+                        <input onChange={changeFields} id="name" value={editinfo.name} className={styles.inputstyles}></input>
                     </label>
                 </Col>
                 <Col span={8}>
                     <label>
                         <span className={styles.formtitle}>分類</span>
-                        <input onChange={changeFields} id="type" value={editinfo.type}></input>
+                        <input onChange={changeFields} id="type" value={editinfo.type} className={styles.inputstyles}></input>
                     </label>
                 </Col>
                 <Col span={8}>
 
                     <label>
                     <span className={styles.formtitle}>價格</span>
-                    <input onChange={changeFields} id="price" value={editinfo.price}></input>
+                    <input onChange={changeFields} id="price" value={editinfo.price} className={styles.inputstyles} type="number"></input>
                     </label>
 
                 </Col>
             </Row>
-            <Row>
+            <Row className={styles.rowsstyles}>
                 <Col span={8}>
                     <label>
                     <span className={styles.formtitle}>圖片</span>
-                    <input onChange={changeFields} id="pic" value={Boolean(editinfo.status*1)}></input>
+                    <input onChange={changeFields} id="pic" value={Boolean(editinfo.status*1)} className={styles.inputstyles}></input>
                     </label>
                     
                 </Col>
@@ -104,13 +105,8 @@ function AddNewProduct(props) {
                     <label>
                     <span className={styles.formtitle}>狀態</span>
                 
-
-                    <input
-                            type="checkbox"
-                            onChange={statusController}
-                            id="status"
-                            checked={editinfo.status === "1"} 
-                        />
+                    <Switch checked={editinfo.status === "1"} onChange={statusController}
+                            id="status" checkedChildren="上架" unCheckedChildren="下架"></Switch>
                 
                     </label>
                 </Col>
@@ -118,10 +114,10 @@ function AddNewProduct(props) {
             <Row>
                 <Col span={24}>    
                     <span className={styles.formtitle}>描述</span>
-                    <textarea className={styles.des} onChange={changeFields} id="description" value={editinfo.description}></textarea>
+                    <textarea className={styles.des} onChange={changeFields} id="description" value={editinfo.description} className={styles.textareastyles}></textarea>
                 </Col>
             </Row>
-            <div><button onClick={addproduct}>送出</button></div>
+            <div  className={styles.addsec}><button onClick={addproduct} className={styles.sumitbtn}>送出</button></div>
         </div>
     )
 }

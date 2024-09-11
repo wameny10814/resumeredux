@@ -5,10 +5,14 @@ import Chart from 'chart.js/auto';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import { Col, Divider, Row,Pagination } from 'antd';
+import styles from '../styles/MemberCenter.module.css';
 
 function MerberCenter() {
 //for 初始畫面商品select option 的data
 const [productsdata, setProductData] = useState([]);
+const [selecteditem, setSelectedItem] = useState('');
+
+let Color = ['#ADD8E6','#ecdfc8','#90be6d','#8ba8cb','#f9844a','#f9c74f','#d79771','#94C4EF','#43aa8b','#A8EBE9','#DCB1B2','#fc9f5b','#add8e6','#C0504D','#95e45a','#9d6fa9','#437d8f','#c77775','#d3b1dc','#d3b1dc','#2FC5F2','#FF7A77','#8DA979','#D973F3','#7175D7','#5AE478','#D0E200','#FFB7B5'];
 
 //處理初始畫面畫圖的時間區間
 
@@ -24,7 +28,7 @@ const [bardata,setBarData]=useState({
   datasets: [
     {
       label: "label1",
-      backgroundColor: "rgba(154,178,96,0.5)",
+      backgroundColor: Color,
       hoverBackgroundColor: "rgba(154,178,96,1)",
       //各品項數量，要對齊labels
       data: [510, 615, 1215, 1481, 1055,500,-1100],
@@ -38,55 +42,56 @@ const [linerdata,setLinerData]=useState({
   datasets: [
     {
       label: "單品項銷售量",
-      backgroundColor: "rgba(154,178,96,0.5)",
+      backgroundColor: Color,
       hoverBackgroundColor: "rgba(154,178,96,1)",
       //各品項數量，要對齊labels
       data: [510, 615, 1215, 1481, 1055,500,-1100],
     }]
 
 })
-//缺資料
 const [generdata,setGenderData]=useState({
 
   labels: ["F", "M"],
   datasets: [
     {
       label: "銷售客群性別比",
-      backgroundColor: "rgba(154,178,96,0.5)",
+      backgroundColor: Color,
       hoverBackgroundColor: "rgba(154,178,96,1)",
       //各品項數量，要對齊labels
       data: [510, 615, 1215, 1481, 1055,500,-1100],
     }]
 
 })
-//缺資料
+
 const [agedata,setAgeData]=useState({
 
   labels: [],
   datasets: [
     {
-      label: "銷售客群年齡比",
-      backgroundColor: "rgba(154,178,96,0.5)",
+      label: "銷售客群期間購買年齡比",
+      backgroundColor: Color,
       hoverBackgroundColor: "rgba(154,178,96,1)",
       //各品項數量，要對齊labels
       data: [510, 615, 1215, 1481, 1055,500,-1100],
     }]
 
 })
-//缺資料
+
 const [sectiondata,setSectionData]=useState({
 
   labels: [],
   datasets: [
     {
       label: "期間區域銷售數量趨勢圖",
-      backgroundColor: "rgba(154,178,96,0.5)",
+      backgroundColor: Color,
       hoverBackgroundColor: "rgba(154,178,96,1)",
       //各品項數量，要對齊labels
       data: [510, 615, 1215, 1481, 1055,500,-1100],
     }]
 
-})
+});
+
+
 
 
 
@@ -158,13 +163,14 @@ const drawreport = function(){
   .then((result) => {
       console.log('result',result);
       if(result.success == true){
+        setSelectedItem(result.selecteditem);
       setBarData({
 
         labels: result.barData.labels,
         datasets: [
           {
-            label: "區間各品項銷售總數",
-            backgroundColor: "rgba(154,178,96,0.5)",
+            label: "期間各項銷售量",
+            backgroundColor: Color,
             hoverBackgroundColor: "rgba(154,178,96,1)",
             //各品項數量，要對齊labels
             data: result.barData.data,
@@ -180,10 +186,11 @@ const drawreport = function(){
         datasets: [
           {
             label: "單品項銷售量",
-            backgroundColor: "rgba(154,178,96,0.5)",
+            backgroundColor: Color,
             hoverBackgroundColor: "rgba(154,178,96,1)",
             //各品項數量，要對齊labels
             data: result.linerData.data,
+
           }]
 
       });
@@ -193,8 +200,8 @@ const drawreport = function(){
         labels: result.agesData.labels,
         datasets: [
           {
-            label: "年齡比",
-            backgroundColor: "rgba(154,178,96,0.5)",
+            label: "期間購買年齡比",
+            backgroundColor: Color,
             hoverBackgroundColor: "rgba(154,178,96,1)",
             //各品項數量，要對齊labels
             data: result.agesData.data,
@@ -207,8 +214,8 @@ const drawreport = function(){
         labels: result.sectionsData.labels,
         datasets: [
           {
-            label: "區域佔比",
-            backgroundColor: "rgba(154,178,96,0.5)",
+            label: "期間區域銷售數量趨勢圖",
+            backgroundColor: Color,
             hoverBackgroundColor: "rgba(154,178,96,1)",
             //各品項數量，要對齊labels
             data: result.sectionsData.data,
@@ -221,7 +228,7 @@ const drawreport = function(){
         datasets: [
           {
             label: "性別比",
-            backgroundColor: "rgba(154,178,96,0.5)",
+            backgroundColor: Color,
             hoverBackgroundColor: "rgba(154,178,96,1)",
             //各品項數量，要對齊labels
             data: result.genderData.data,
@@ -252,51 +259,55 @@ useEffect(() => {
   
 
   return (
-    <div>
-        <h2>Peaceful Donut 後台</h2>
-        <h2>報表數據</h2>
-        <div>
-            <Link to="/ProductMange">
-              <p >商品管理</p>
-            </Link>
+    <div className={styles.membercenter}>
+        <div className={styles.flexs}>
+          <h2>Peaceful Donut 後台 - 報表數據</h2>
+          <div>
+              <Link to="/ProductMange">
+                <button className={styles.linkbtn}>商品管理</button>
+              </Link>
+          </div>
         </div>
-        <label>
-          時間一
-          <input type="date"   onChange={changeFields} id="startdate" value={drawingdata.startdate}></input>
-        </label>
-        <label>
-          時間二
-          <input type="date"   onChange={changeFields} id="enddate" value={drawingdata.enddate}></input>
-        </label>
-        <label>
-          篩選品項
-          <select name="pets" id="selectedproduct"   onChange={changeFields}>
-          <option disabled>請選擇商品</option>
-          {productsdata.map((v, i) => {
-                  return (
-                    <option value={v.name} key={i}>{v.name}</option>
-                  )
-              })
-          }
-          </select>
-        </label>
+        <div className={styles.searchingbar}>
+          <label className={styles.lablesstyles}>
+            時間一
+            <input type="date"  className={styles.inputstyles}  onChange={changeFields} id="startdate" value={drawingdata.startdate}></input>
+          </label>
+          <label className={styles.lablesstyles}>
+            時間二
+            <input type="date" className={styles.inputstyles}  onChange={changeFields} id="enddate" value={drawingdata.enddate}></input>
+          </label>
+          <label className={styles.lablesstyles}>
+            篩選品項
+            <select name="pets" id="selectedproduct"   onChange={changeFields} className={styles.selectstyles}>
+            <option disabled>請選擇商品</option>
+            {productsdata.map((v, i) => {
+                    return (
+                      <option value={v.name} key={i}>{v.name}</option>
+                    )
+                })
+            }
+            </select>
+          </label>
 
+        </div>
+        
         <div>
+          <p className={styles.charttitles}>期間各項銷售量</p>
           <Bar type='bar'   data={bardata} />
         </div>
-        <Row>
-          <Col span={12}>
-            <Doughnut type='Doughnut'  data={generdata}></Doughnut>
-
-          </Col>
-          <Col span={12}>
-            <Doughnut  type='Doughnut'  data={linerdata} />
-          </Col>
+        <Row className={styles.rowsmid}>
+            <Col span={7}> <p className={styles.charttitles}>{selecteditem}銷售圓餅圖</p><Doughnut  type='Doughnut'  data={linerdata} /></Col>
+            
+            <Col span={15} offset={2}><p className={styles.charttitles}>期間區域銷售數量趨勢圖</p><Line  type='line'  data={sectiondata}></Line></Col>
+            
         </Row>
+
         <Row>
         
-          <Col span={12}><Bar type='Bar'  data={agedata}></Bar></Col>
-          <Col span={12}><Line  type='line'  data={sectiondata}></Line></Col>
+          <Col span={7}><p className={styles.charttitles}>期間購買男女比</p><Doughnut type='Doughnut'  data={generdata}></Doughnut></Col>
+       
+          <Col span={15} offset={2}><p className={styles.charttitles}>期間購買年齡比</p><Bar type='Bar'  data={agedata}></Bar></Col>
         </Row>
 
         
