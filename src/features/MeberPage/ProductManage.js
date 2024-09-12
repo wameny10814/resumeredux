@@ -57,11 +57,9 @@ function ProductManage() {
 
     const deletetbn = function(sid){
         console.log('deletetbn',sid);
-      
     }
 
     const confirm = (sid) => {
-        console.log(sid);
         let data = {
             sid:sid
         }
@@ -114,7 +112,8 @@ function ProductManage() {
             <div>
                 <Row>
                     <Col span={2} align="center"><h5 className={styles.tabletiles}>排序</h5></Col>
-                    <Col span={6} align="center"><h5 className={styles.tabletiles}>品名</h5></Col>
+                    <Col span={4} align="center"><h5 className={styles.tabletiles}>品名</h5></Col>
+                    <Col span={2} align="center"><h5 className={styles.tabletiles}>圖片</h5></Col>
                     <Col span={4} align="center"><h5 className={styles.tabletiles}>單價</h5></Col>
                     <Col span={4} align="center"><h5 className={styles.tabletiles}>分類</h5></Col>
                     <Col span={4} align="center"><h5 className={styles.tabletiles}>狀態</h5></Col>
@@ -126,7 +125,9 @@ function ProductManage() {
 
                         <Row key={i} className={styles.productitems}>
                             <Col span={2} align="center" ><span>{v.sid}</span></Col>
-                            <Col span={6} align="center"><span>{v.name}</span></Col>
+                            <Col span={4} align="center"><div className={styles.imgsec}><img className={styles.imgpercent} src={`http://localhost:3500/uploads/${v.pic}`} alt={`uploaded-${i}`} /></div></Col>
+                            <Col span={2} align="center"><span>{v.name}</span></Col>
+                           
                             <Col span={4} align="center"><span>{v.price}</span></Col>
                             <Col span={4} align="center"><span>{v.type}</span></Col>
                             <Col span={4} align="center"><Switch disabled="true" checkedChildren="已上架" unCheckedChildren="下架中" checked={v.status === "1"}>{v.status}</Switch></Col>

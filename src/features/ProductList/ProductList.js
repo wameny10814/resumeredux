@@ -222,8 +222,8 @@ function ProductList() {
 
                         <Col span={8} key={v.sid}>
                             <div  className={styles.ProducSec}>
-                                <div className={styles.ProductimgSec} onClick={() => goToDetail(v.id)}>
-                                    <img src={dunut01} className={styles.Productimg}></img>
+                                <div className={styles.ProductimgSec} onClick={() => goToDetail(v.sid)}>
+                                    <img src={`http://localhost:3500/uploads/${v.pic}`} alt={`uploaded-${i}`} className={styles.Productimg}></img>
                                 </div>
                                 <div className={styles.ProducDetail}>
                                     <p>品項: {v.name}</p>

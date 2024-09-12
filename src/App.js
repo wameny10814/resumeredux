@@ -40,15 +40,12 @@ function App() {
           <BrowserRouter>
             <Nav></Nav>
             
-              <Routes >
+              <Routes>
                 <Route path="/resumeredux" element={<Home />} />
                 <Route path="/Login" element={<Login />} />
-              </Routes>
-              <div style={{marginLeft:'10%',marginRight:'10%'}}>
-                <Routes >
-        
-                  <Route path="/ProductList" element={<ProductList />}/>
               
+              
+                  <Route path="/ProductList" element={<ProductList />}/>
                   <Route path="/ProductList">
                     <Route path=":productId" element={<ProductDetail />} />
                   </Route>
@@ -61,9 +58,8 @@ function App() {
                   <Route path="/ProductMange" element={<ProductManage />} />
                   <Route path="/MemberCenter" element={<MemberCenter />} />
                   <Route path="/ReceiveForm" element={<ReceiveForm />} />
-                  
-                </Routes>
-              </div>
+               
+              </Routes>
         
           
             <Footer></Footer>

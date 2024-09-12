@@ -26,24 +26,12 @@ function Nav() {
                         <div className={styles.navArrorLeft}>
                             <img src={arrowLeft}></img>
                         </div>
-                        <Link to="/MemberCenter">
-                            <p className={styles.navListItem}>會員專區</p>
-                        </Link>
-                        <div className={styles.navArrorLeft}>
-                            <img src={arrowRight}></img>
-                        </div>
-                    </div>
-                    <div className={styles.navLink}>
-                        <div className={styles.navArrorLeft}>
-                            <img src={arrowLeft}></img>
-                        </div>
                         <div  onClick={() => {logout()}} className={styles.navListItem}>登出</div>
                         <div className={styles.navArrorLeft}>
                             <img src={arrowRight}></img>
                         </div>
 
                     </div>
-                   
                 </>
             )
             
@@ -63,7 +51,6 @@ function Nav() {
                     </div>
                 </>
             )
-         
         }
     }
     useEffect(() => {
@@ -113,6 +100,22 @@ function Nav() {
                         <img src={arrowRight}></img>
                     </div>
                 </div>
+                {
+                    authorized == true ? (
+                        <div className={styles.navLink}>
+                        <div className={styles.navArrorLeft}>
+                            <img src={arrowLeft}></img>
+                        </div>
+                        <Link to="/MemberCenter">
+                            <p className={styles.navListItem}>會員專區</p>
+                        </Link>
+                        <div className={styles.navArrorLeft}>
+                            <img src={arrowRight}></img>
+                        </div>
+                    </div>
+                        
+                    ):''
+                }
                 <div className={styles.navLink}> 
                     <Author authorized={authorized}/>
                 </div>
