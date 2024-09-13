@@ -2,15 +2,19 @@ import TextArea from 'antd/es/input/TextArea'
 import styles from '../styles/Addnewproduct.module.css'
 import React from 'react'
 import { Col, Row,Switch  } from 'antd';
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
+import  sssssssssss  from '../imgs/whitespace.png';
 
 
 function AddNewProduct(props) {
 
     const [addproductdata, setAddProductData] = useState({status:false});
+    const [change, setChange] = useState(false);
+    const [imagePreview, setImagePreview] = useState(sssssssssss
+    ); // 用於存儲圖片預覽的 URL
     const {openeditcom,setOpenEditCom,getsproducts,editinfo,seteEditInfo} =props;
 
-
+    const picDemoclick = useRef('');
     const changeFields = (event) => {
         const id = event.target.id;
         const val = event.target.value;
@@ -32,29 +36,38 @@ function AddNewProduct(props) {
             return;
         }
         seteEditInfo({ ...editinfo, pic: event.target.files[0] });
+
+        //前端預覽圖片
+        const file = event.target.files[0];
+        // 使用 FileReader 讀取文件內容
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImagePreview(reader.result); // 設置圖片預覽 URL
+        };
+        reader.readAsDataURL(file); // 讀取文件
+
     };
 
     // 提交圖片
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('handleSubmit');
-        if (!editinfo.pic) return;
+        // if (!editinfo.pic) return;
 
     };
+
+    const changenewpic = function (){
+        console.log('changenewpic');
+        setChange(true);
+        picDemoclick.current.click();
+    }
 
 
     const addproduct = async function(event){
         console.log('addproduct',editinfo);
         event.preventDefault();
-        if (!editinfo.pic) return;
-
-        const formData = new FormData();
-        formData.append('image', editinfo.pic);
-        formData.append('sid', editinfo.sid);
-        
         let urlstring =''
         
-
         if(!editinfo.status){
             seteEditInfo({ ...editinfo, status: false });
         }
@@ -75,39 +88,55 @@ function AddNewProduct(props) {
         });
 
         const result1 = await response1.json();
-    
+        // console.log('result1',result1);
 
-        // 如果第一個 update API 請求成功，進行文件上傳
-        if (result1.success) {
-            // 打文件上傳 API
-            const response2 = await fetch('http://localhost:3500/admin2/upload', {
-                method: 'POST',
-                body: formData, 
-            });
-
-            const result2 = await response2.json();
-            console.log('文件上傳結果:', result2);
-
-            // 處理上傳成功的情況
-            if (result2.success) {
-                setOpenEditCom('');
-                getsproducts();
-            } else {
-                console.log('文件上傳錯誤:', result2);
+        // 如果第一個 add API 請求成功 ，進行文件上傳
+        // 如果 updated api 請求成功 && 用戶要換照片
+        if (change == true && result1.type == 'edited' || result1.success && result1.type == 'added' ) {
+            
+            const formData = new FormData();
+            formData.append('image', editinfo.pic);
+            console.log('name',editinfo.pic);
+            let sidforFormdata;
+            if(result1.type == 'added'){
+                sidforFormdata = result1.sid;
+            }else if(result1.type == 'edited'){
+                sidforFormdata =  editinfo.sid;
             }
-        } else {
-            console.log('初始化 API 錯誤:', result1);
-        }
 
+            formData.append('sid', sidforFormdata);
+
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ", " + pair[1]);
+            }
+            // 打文件上傳 API
+            const response2 = await fetch('http://localhost:3500/admin2/upload', {
+                method: 'POST',
+                body: formData, 
+            });
+            const result2 = await response2.json();
+//             console.log('文件上傳結果:', result2);
+
+            // 處理上傳成功的情況
+            if (result2.success) {
+                setOpenEditCom('');
+                getsproducts();
+                setChange(false);
+            } else {
+                console.log('文件上傳錯誤:', result2);
+            }
+        }else if(result1.success){
+            setOpenEditCom('');
+            getsproducts();
+            setChange(false);
+
+        }
     } catch (error) {
         console.error('錯誤:', error);
     }
 
     } 
 
-    const changenewpic = function (){
-        console.log('changenewpic');
-    }
 
     return (
         <div className={styles.addnewproduct}>
@@ -131,7 +160,6 @@ function AddNewProduct(props) {
                     </label>
                 </Col>
                 <Col span={8}>
-
                     <label>
                     <span className={styles.formtitle}>價格</span>
                     <input onChange={changeFields} id="price" value={editinfo.price} className={styles.inputstyles} type="number"></input>
@@ -142,9 +170,11 @@ function AddNewProduct(props) {
                 <Col span={8}>
                     <label>
                     <span className={styles.formtitle}>圖片</span>
-                        <input type="file" onChange={handleFileChange} />
+                        <input type="file" className={styles.fileoriginal} onChange={handleFileChange} ref={picDemoclick} />
                     </label>
-                    <div className={styles.imgsec}><img className={styles.imgpercent} src={`http://localhost:3500/uploads/${editinfo.pic}`} /></div>
+                    <button
+                    onClick={changenewpic}>上傳圖片</button><span>{editinfo.pic?.name}</span>
+                    <div className={styles.imgsec}><img className={styles.imgpercent} src={imagePreview ? imagePreview : `http://localhost:3500/uploads/${editinfo.pic}`}  /></div>
                 </Col>
                 <Col span={8}>
                     <label>
@@ -152,7 +182,6 @@ function AddNewProduct(props) {
                 
                     <Switch checked={editinfo.status === "1"} onChange={statusController}
                             id="status" checkedChildren="上架" unCheckedChildren="下架"></Switch>
-                
                     </label>
                 </Col>
             </Row>

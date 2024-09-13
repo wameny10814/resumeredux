@@ -66,7 +66,8 @@ function Login() {
                         type="text"
                         value={myform.account}
                         onChange={changeFields}
-                        placeholder="帳號"></input>
+                        placeholder="帳號"
+                        className={styles.inputstyles}></input>
                 </div>
             <div className={styles.inputsec}>
         
@@ -76,7 +77,8 @@ function Login() {
                     name="passwrod"
                     onChange={changeFields}
                     value={myform.password}
-                    placeholder="密碼"></input>
+                    placeholder="密碼"
+                    className={styles.inputstyles}></input>
             </div>
             <div><button onClick={loginbtn} className={styles.loginbtn}>登入</button></div>
             </div>    

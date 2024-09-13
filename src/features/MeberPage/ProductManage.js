@@ -44,15 +44,23 @@ function ProductManage() {
         seteEditInfo({...item});
     }
     const opeadd = function(){
-        setOpenEditCom('add');
-        //按下新增清空edit sate 讓子層input value為空
-        seteEditInfo({
-            status:false,
-            name:'',
-            price:'',
-            description:'',
-            type:''
-        });
+        if(openeditcom == 'add' || openeditcom == 'edit'){
+            setOpenEditCom('');
+
+        }else{
+            
+
+            setOpenEditCom('add');
+            //按下新增清空edit sate 讓子層input value為空
+            seteEditInfo({
+                status:false,
+                name:'',
+                price:'',
+                description:'',
+                type:''
+            });
+        }
+
     }
 
     const deletetbn = function(sid){
@@ -109,7 +117,7 @@ function ProductManage() {
        <div className={styles.productform}>
 
        <div>
-            <div>
+            <div className={styles.preducttable}>
                 <Row>
                     <Col span={2} align="center"><h5 className={styles.tabletiles}>排序</h5></Col>
                     <Col span={4} align="center"><h5 className={styles.tabletiles}>品名</h5></Col>
@@ -130,7 +138,7 @@ function ProductManage() {
                            
                             <Col span={4} align="center"><span>{v.price}</span></Col>
                             <Col span={4} align="center"><span>{v.type}</span></Col>
-                            <Col span={4} align="center"><Switch disabled="true" checkedChildren="已上架" unCheckedChildren="下架中" checked={v.status === "1"}>{v.status}</Switch></Col>
+                            <Col span={4} align="center"><Switch disabled checkedChildren="已上架" unCheckedChildren="下架中" checked={v.status === "1"}>{v.status}</Switch></Col>
                             <Col span={4} align="center">
                             <Space>
                             <Button type="primary" onClick={()=>openedit(v)}>編輯</Button>
@@ -156,7 +164,6 @@ function ProductManage() {
         </div>
         <div className={styles.addsec}>
             <button onClick={opeadd} className={styles.addnewone}>新增商品</button>
-            {/* <p>{openeditcom}</p> */}
         </div>
         {openeditcom === 'add' || openeditcom === 'edit'?(<AddNewProduct openeditcom={openeditcom} setOpenEditCom={setOpenEditCom} getsproducts={getsproducts} editinfo={editinfo} seteEditInfo={seteEditInfo}></AddNewProduct>):<></>}
 

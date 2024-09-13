@@ -20,6 +20,8 @@ import ReceiveForm from './features/CartPage/ReceiveForm';
 
 import ProductDetail from './features/ProductList/ProductDetail';
 
+import StyledLayout from './features/StyleLayout';
+
 //context
 import AuthContextProvider from '../src/features/MeberPage/AuthConextProvider';
 
@@ -43,8 +45,9 @@ function App() {
               <Routes>
                 <Route path="/resumeredux" element={<Home />} />
                 <Route path="/Login" element={<Login />} />
-              
-              
+                {/* 有些要套用共同樣式 */}
+                <Route element={<StyledLayout />}>
+
                   <Route path="/ProductList" element={<ProductList />}/>
                   <Route path="/ProductList">
                     <Route path=":productId" element={<ProductDetail />} />
@@ -54,11 +57,15 @@ function App() {
                   <Route path="Checkout" element={<Checkout />} />
                   <Route path="linePay/confirm" element={<Confirm />} />
                   <Route path="/Contactus" element={<Contactus />} />
-                
                   <Route path="/ProductMange" element={<ProductManage />} />
                   <Route path="/MemberCenter" element={<MemberCenter />} />
                   <Route path="/ReceiveForm" element={<ReceiveForm />} />
-               
+
+                </Route>
+              
+
+            
+                  
               </Routes>
         
           

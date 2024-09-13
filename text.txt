@@ -81,3 +81,6 @@
                                         decre:<button  style={{border:'none',borderRadius:'50%'}}
                                         onClick={()=>dispatch(deduction({id:v.sid*1}))}>-</button>,
                                     }))}>加入購物車</button>
+
+
+                               

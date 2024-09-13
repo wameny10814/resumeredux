@@ -13,7 +13,7 @@ export const CartSlice = createSlice({
                 "name": '',
                 "quantity":0,
                 "price": 0,
-                "total":'',
+                "total":0,
                 "incre":'',
                 "decre":'',
                 "firstname":'',
@@ -33,6 +33,7 @@ export const CartSlice = createSlice({
             let filtter =  state.value.find((user) =>user.id == action.payload.id);
                 if (filtter) {
                     filtter.quantity += action.payload.quantity;
+                    filtter.total += action.payload.total*1;
                     
                 }else{
                     state.value.push(action.payload);

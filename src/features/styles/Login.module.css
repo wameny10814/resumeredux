@@ -14,10 +14,19 @@
     margin-bottom: 5rem;
 }
 
-input{
+
+
+.inputstyles{
     width: 300px;
     height:35px;
     padding-left:15px;
+    border:1px solid #d9d9d9;
+
+}
+.inputstyles:hover{
+
+    border:1px solid #AC7355;
+
 }
 
 .inputsec{
@@ -28,8 +37,6 @@ input{
     border: 1px solid #AC7355;
     background-color:#fff;
     color:#AC7355;
-
-
     padding: 3px 10px;
 }
 
