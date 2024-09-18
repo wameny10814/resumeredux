@@ -16,11 +16,15 @@ function Contactus() {
         setMyform({ ...myform, [id]: val });
     };
 
+    const {
+        FETCHORIGIN,
+      } = process.env;
+
     const submitemail = (event) => {
         event.preventDefault();
         // console.log('submit', myform);
         //fetch to backend
-        fetch('http://localhost:3500/admin2/contactus', {
+        fetch(`https://resumebackendpay.onrender.com/admin2/contactus`, {
             method: 'POST',
             body: JSON.stringify(myform),
             headers: {

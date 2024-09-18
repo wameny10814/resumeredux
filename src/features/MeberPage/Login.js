@@ -21,10 +21,14 @@ function Login() {
     setMyform({ ...myform, [id]: val });
     };
 
+    const {
+        FETCHORIGIN,
+    } = process.env;
+
 
     
     const loginbtn = function(){
-        fetch('http://localhost:3500/admin2/logindesu', {
+        fetch(`https://resumebackendpay.onrender.com/admin2/logindesu`, {
             method: 'POST',
             body: JSON.stringify(myform),
             headers: {

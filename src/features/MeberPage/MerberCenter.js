@@ -14,6 +14,10 @@ const [selecteditem, setSelectedItem] = useState('');
 
 let Color = ['#ADD8E6','#ecdfc8','#90be6d','#8ba8cb','#f9844a','#f9c74f','#d79771','#94C4EF','#43aa8b','#A8EBE9','#DCB1B2','#fc9f5b','#add8e6','#C0504D','#95e45a','#9d6fa9','#437d8f','#c77775','#d3b1dc','#d3b1dc','#2FC5F2','#FF7A77','#8DA979','#D973F3','#7175D7','#5AE478','#D0E200','#FFB7B5'];
 
+const {
+  FETCHORIGIN,
+} = process.env;
+
 //處理初始畫面畫圖的時間區間
 
 const [drawingdata, setDrawingData] = useState({
@@ -103,7 +107,7 @@ const changeFields = (event) => {
   };
 //拿初始畫面商品select option 的function
 const getproductlist = function(){
-    fetch('http://localhost:3500/admin2/findproducttyps', {
+    fetch(`https://resumebackendpay.onrender.com/admin2/findproducttyps`, {
       method: 'GET',
       headers: {
       'Content-Type': 'application/json',
@@ -152,7 +156,7 @@ const drawreport = function(){
   if(!drawingdata.startdate || !drawingdata.enddate ){
     alert('請選擇時間區間')
   }
-  fetch('http://localhost:3500/admin2/filter', {
+  fetch(`https://resumebackendpay.onrender.com/admin2/filter`, {
     method: 'POST',
     body: JSON.stringify(drawingdata),
     headers: {

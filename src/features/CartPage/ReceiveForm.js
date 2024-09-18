@@ -48,6 +48,10 @@ function ReceiveForm() {
 		"花蓮縣"
 
     ]);
+
+    const {
+        FETCHORIGIN,
+      } = process.env;
     
 
     const gotopay = ()=>{
@@ -108,7 +112,7 @@ function ReceiveForm() {
         console.log('dataforgotopay',dataforgotopay);
 
         // //寫進入資料庫
-        fetch('http://localhost:3500/admin2/gotopay', {
+        fetch('https://resumebackendpay.onrender.com/admin2/gotopay', {
             method: 'POST',
             body: JSON.stringify(dataforgotopay),
             headers: { 'Content-Type': 'application/json' }
@@ -118,7 +122,7 @@ function ReceiveForm() {
 
                 // console.log('data',data);
                 //line pay
-                fetch('http://localhost:3500/admin2/checkout', {
+                fetch(`https://resumebackendpay.onrender.com/admin2/checkout`, {
                     method: 'POST',
                     body: JSON.stringify(updatedData),
                     headers: { 'Content-Type': 'application/json' }

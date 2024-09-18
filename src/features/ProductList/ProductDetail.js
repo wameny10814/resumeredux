@@ -16,6 +16,10 @@ function ProductDetail() {
     const [productsdata, setProductData] = useState([]);
     const [counting, setCounting] = useState(1);
 
+     const {
+        FETCHORIGIN,
+      } = process.env;
+
 
 
     const joinToCart = () => {
@@ -37,7 +41,7 @@ function ProductDetail() {
     
         console.log('getdetaildata',params.productId);
 
-        fetch(`http://localhost:3500/admin2/getproductdetail/${params.productId}`, {
+        fetch(`https://resumebackendpay.onrender.com/admin2/getproductdetail/${params.productId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +81,7 @@ function ProductDetail() {
         <div>
             <div className={styles.Productdetail}>
                 <div className={styles.bannerSec}>
-                    <img className={styles.bannerimg} src={`http://localhost:3500/uploads/${productsdata[0].pic}`} alt={`uploaded-${productsdata[0].pic}`}></img>
+                    <img className={styles.bannerimg} src={`https://resumebackendpay.onrender.com/uploads/${productsdata[0].pic}`} alt={`uploaded-${productsdata[0].pic}`}></img>
                 </div>
                 <div className={styles.detailflexs}>
                     <h3 id="name" className={styles.name}>{productsdata[0].name}</h3>

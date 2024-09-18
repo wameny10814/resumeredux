@@ -22,6 +22,10 @@ function AddNewProduct(props) {
         seteEditInfo({ ...editinfo, [id]: val });
     };
 
+    const {
+        FETCHORIGIN,
+      } = process.env;
+
     const statusController = function(event){
         // const statusval = event.target.checked ? "1" : "0";  // 轉換為 "1" 或 "0"
         const statusval = event ? "1" : "0";
@@ -79,7 +83,7 @@ function AddNewProduct(props) {
         }
 
     try {
-        const response1 = await fetch(`http://localhost:3500/admin2/${urlstring}`, {
+        const response1 = await fetch(`https://resumebackendpay.onrender.com/admin2/${urlstring}`, {
             method: 'POST',
             body: JSON.stringify(editinfo), 
             headers: {
@@ -110,7 +114,7 @@ function AddNewProduct(props) {
                 console.log(pair[0] + ", " + pair[1]);
             }
             // 打文件上傳 API
-            const response2 = await fetch('http://localhost:3500/admin2/upload', {
+            const response2 = await fetch(`https://resumebackendpay.onrender.com/admin2/upload`, {
                 method: 'POST',
                 body: formData, 
             });
@@ -174,7 +178,7 @@ function AddNewProduct(props) {
                     </label>
                     <button
                     onClick={changenewpic}>上傳圖片</button><span>{editinfo.pic?.name}</span>
-                    <div className={styles.imgsec}><img className={styles.imgpercent} src={imagePreview ? imagePreview : `http://localhost:3500/uploads/${editinfo.pic}`}  /></div>
+                    <div className={styles.imgsec}><img className={styles.imgpercent} src={imagePreview ? imagePreview : `https://resumebackendpay.onrender.com/uploads/${editinfo.pic}`}  /></div>
                 </Col>
                 <Col span={8}>
                     <label>
