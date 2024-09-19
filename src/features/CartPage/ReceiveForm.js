@@ -125,22 +125,22 @@ function ReceiveForm() {
 
                 // console.log('data',data);
                 //line pay for 本機
-                // fetch(`${REACT_APP_FETCHORIGIN}/admin2/checkout`, {
-                //     method: 'POST',
-                //     body: JSON.stringify(updatedData),
-                //     headers: { 'Content-Type': 'application/json' }
-                //     })
-                // .then((r) => r.json())
-                // .then((data) => {
-                //     console.log('data2', data);
-                //     // setID(data.orderId);
-                //     window.location.assign(data.paymentUrl.web);
-                //     // setPaymentStatus(true);
+                fetch(`${REACT_APP_FETCHORIGIN}/admin2/checkout`, {
+                    method: 'POST',
+                    body: JSON.stringify(updatedData),
+                    headers: { 'Content-Type': 'application/json' }
+                    })
+                .then((r) => r.json())
+                .then((data) => {
+                    console.log('data2', data);
+                    // setID(data.orderId);
+                    window.location.assign(data.paymentUrl.web);
+                    // setPaymentStatus(true);
                     
-                // })
+                })
 
-                //對外
-                navigate('/linepayconfirm');
+              
+              
 
             })
     }
@@ -231,7 +231,10 @@ function ReceiveForm() {
                     </Col>
                 </Row>
                 <div className={styles.flexs}>
-                    <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button>
+                    {/* <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button> */}
+                    <Link to="/linepayconfirm">
+                            <button className={styles.gotolinepay}>結帳</button>
+                    </Link>
                 </div>
             </div>
         </div>
