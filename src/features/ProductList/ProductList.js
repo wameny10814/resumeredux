@@ -160,7 +160,7 @@ function ProductList() {
     ];
 
     const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
       } = process.env;
 
     let facktwo = [];
@@ -188,7 +188,7 @@ function ProductList() {
 
     
 
-    fetch(`https://resumebackendpay.onrender.com/admin2/getproductlist`, {
+    fetch(`${REACT_APP_FETCHORIGIN}/admin2/getproductlist`, {
         method: 'POST',
         body: JSON.stringify(apidata),
         headers: {
@@ -223,7 +223,7 @@ function ProductList() {
                         <Col span={8} key={v.sid}>
                             <div  className={styles.ProducSec}>
                                 <div className={styles.ProductimgSec} onClick={() => goToDetail(v.sid)}>
-                                    <img src={`https://resumebackendpay.onrender.com/uploads/${v.pic}`} alt={`uploaded-${i}`} className={styles.Productimg}></img>
+                                    <img src={`${REACT_APP_FETCHORIGIN}/uploads/${v.pic}`} alt={`uploaded-${i}`} className={styles.Productimg}></img>
                                 </div>
                                 <div className={styles.ProducDetail}>
                                     <p>品項: {v.name}</p>

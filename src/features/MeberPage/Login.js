@@ -22,13 +22,13 @@ function Login() {
     };
 
     const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
     } = process.env;
 
 
     
     const loginbtn = function(){
-        fetch(`https://resumebackendpay.onrender.com/admin2/logindesu`, {
+        fetch(`${REACT_APP_FETCHORIGIN}/admin2/logindesu`, {
             method: 'POST',
             body: JSON.stringify(myform),
             headers: {

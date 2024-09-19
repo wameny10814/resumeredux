@@ -50,7 +50,7 @@ function ReceiveForm() {
     ]);
 
     const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
       } = process.env;
     
 
@@ -112,7 +112,7 @@ function ReceiveForm() {
         console.log('dataforgotopay',dataforgotopay);
 
         // //寫進入資料庫
-        fetch('https://resumebackendpay.onrender.com/admin2/gotopay', {
+        fetch(`${REACT_APP_FETCHORIGIN}/admin2/gotopay`, {
             method: 'POST',
             body: JSON.stringify(dataforgotopay),
             headers: { 'Content-Type': 'application/json' }
@@ -121,20 +121,23 @@ function ReceiveForm() {
             .then((data) => {
 
                 // console.log('data',data);
-                //line pay
-                fetch(`https://resumebackendpay.onrender.com/admin2/checkout`, {
-                    method: 'POST',
-                    body: JSON.stringify(updatedData),
-                    headers: { 'Content-Type': 'application/json' }
-                    })
-                .then((r) => r.json())
-                .then((data) => {
-                    console.log('data2', data);
-                    // setID(data.orderId);
-                    window.location.assign(data.paymentUrl.web);
-                    // setPaymentStatus(true);
+                //line pay for 本機
+                // fetch(`${REACT_APP_FETCHORIGIN}/admin2/checkout`, {
+                //     method: 'POST',
+                //     body: JSON.stringify(updatedData),
+                //     headers: { 'Content-Type': 'application/json' }
+                //     })
+                // .then((r) => r.json())
+                // .then((data) => {
+                //     console.log('data2', data);
+                //     // setID(data.orderId);
+                //     window.location.assign(data.paymentUrl.web);
+                //     // setPaymentStatus(true);
                     
-                })
+                // })
+
+                //對外
+                window.location.assign('https://wameny10814.github.io/linepayconfirm');
 
             })
     }
@@ -225,7 +228,7 @@ function ReceiveForm() {
                     </Col>
                 </Row>
                 <div className={styles.flexs}>
-                    <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳(Linepay){paymentstatus}</button>
+                    <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button>
                 </div>
             </div>
         </div>

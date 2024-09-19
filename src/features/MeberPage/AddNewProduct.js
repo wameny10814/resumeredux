@@ -23,7 +23,7 @@ function AddNewProduct(props) {
     };
 
     const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
       } = process.env;
 
     const statusController = function(event){
@@ -83,7 +83,7 @@ function AddNewProduct(props) {
         }
 
     try {
-        const response1 = await fetch(`https://resumebackendpay.onrender.com/admin2/${urlstring}`, {
+        const response1 = await fetch(`${REACT_APP_FETCHORIGIN}/admin2/${urlstring}`, {
             method: 'POST',
             body: JSON.stringify(editinfo), 
             headers: {
@@ -114,7 +114,7 @@ function AddNewProduct(props) {
                 console.log(pair[0] + ", " + pair[1]);
             }
             // 打文件上傳 API
-            const response2 = await fetch(`https://resumebackendpay.onrender.com/admin2/upload`, {
+            const response2 = await fetch(`${REACT_APP_FETCHORIGIN}/admin2/upload`, {
                 method: 'POST',
                 body: formData, 
             });

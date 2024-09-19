@@ -17,11 +17,11 @@ function ProductManage() {
     const [editinfo, seteEditInfo] = useState({status:0});
 
     const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
       } = process.env;
 
     const getsproducts = function(){
-        fetch(`https://resumebackendpay.onrender.com/admin2/getproducts`, {
+        fetch(`${REACT_APP_FETCHORIGIN}/admin2/getproducts`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function ProductManage() {
             sid:sid
         }
 
-        fetch(`https://resumebackendpay.onrender.com/admin2/deleteproducs`, {
+        fetch(`${REACT_APP_FETCHORIGIN}/admin2/deleteproducs`, {
             method: 'DELETE',
             body: JSON.stringify(data),
             headers: {
@@ -137,7 +137,7 @@ function ProductManage() {
 
                         <Row key={i} className={styles.productitems}>
                             <Col span={2} align="center" ><span>{v.sid}</span></Col>
-                            <Col span={4} align="center"><div className={styles.imgsec}><img className={styles.imgpercent} src={`https://resumebackendpay.onrender.com/uploads/${v.pic}`} alt={`uploaded-${i}`} /></div></Col>
+                            <Col span={4} align="center"><div className={styles.imgsec}><img className={styles.imgpercent} src={`${REACT_APP_FETCHORIGIN}/uploads/${v.pic}`} alt={`uploaded-${i}`} /></div></Col>
                             <Col span={2} align="center"><span>{v.name}</span></Col>
                            
                             <Col span={4} align="center"><span>{v.price}</span></Col>

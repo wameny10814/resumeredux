@@ -29,7 +29,7 @@ function Confirm(props) {
     return (
         <>
             <div style={{textAlign:'center'}}>
-                <h2>Line Pay付款完成!  期待您的下次光臨。</h2>
+                <h2>付款完成!  期待您的下次光臨。</h2>
             </div>
         </>
 

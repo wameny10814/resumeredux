@@ -17,14 +17,14 @@ function Contactus() {
     };
 
     const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
       } = process.env;
 
     const submitemail = (event) => {
         event.preventDefault();
-        // console.log('submit', myform);
+        // console.log('FETCHORIGIN', process.env.REACT_APP_FETCHORIGIN);
         //fetch to backend
-        fetch(`https://resumebackendpay.onrender.com/admin2/contactus`, {
+        fetch(`${REACT_APP_FETCHORIGIN}/admin2/contactus`, {
             method: 'POST',
             body: JSON.stringify(myform),
             headers: {
@@ -34,6 +34,7 @@ function Contactus() {
             .then((r) => r.json())
             .then((result) => {
                 console.log('result', result);
+                
             })
             
     }

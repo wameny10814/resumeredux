@@ -22,11 +22,11 @@ function Checkout() {
     // }
     }
        const {
-        FETCHORIGIN,
+        REACT_APP_FETCHORIGIN,
       } = process.env;
 
     const createOrder = () => {
-        fetch('https://resumebackendpay.onrender.com'+'/admin2/createOrder/'+ID, {
+        fetch(`${REACT_APP_FETCHORIGIN}/admin2/createOrder/`+ID, {
             method: 'POST',
             body:'',
             headers: { 'Content-Type': 'application/json' }
