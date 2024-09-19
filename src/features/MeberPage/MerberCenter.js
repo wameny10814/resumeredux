@@ -115,7 +115,7 @@ const getproductlist = function(){
   })
   .then((r) => r.json())
   .then((result) => {
-      // console.log(result);
+      console.log(result);
       if(result.success == true){
       setProductData(result.data);
     
