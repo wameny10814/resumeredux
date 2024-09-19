@@ -6,6 +6,7 @@ import { inputotherinfo } from '../counter/CartSlice';
 import styles from '../styles/ReceiveForm.module.css';
 import Confirm from '../Linepay/Confirm';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ReceiveForm() {
     //從store拿取資料、拿現在的訂單資訊
@@ -52,6 +53,8 @@ function ReceiveForm() {
     const {
         REACT_APP_FETCHORIGIN,
       } = process.env;
+
+      const navigate = useNavigate();
     
 
     const gotopay = ()=>{
@@ -87,7 +90,7 @@ function ReceiveForm() {
         }
         setSortedInfo(updatedData);
 
-        console.log('updatedData',updatedData);
+        // console.log('updatedData',updatedData);
 
 
 
