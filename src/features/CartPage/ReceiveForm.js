@@ -137,7 +137,7 @@ function ReceiveForm() {
                 // })
 
                 //對外
-                window.location.assign('https://wameny10814.github.io/linepayconfirm');
+                navigate('/linepayconfirm');
 
             })
     }

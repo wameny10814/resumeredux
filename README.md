@@ -23,3 +23,5 @@
 #前端使用技術
 React、Redux、Java Script、HTML、CSS、Ant Design
 
+https://wameny10814.github.io/resumeredux/
+
