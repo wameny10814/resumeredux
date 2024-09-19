@@ -100,6 +100,12 @@ function Nav() {
                         <img src={arrowRight}></img>
                     </div>
                 </div>
+                <div className={styles.navLink}>
+                    <Link to="/linepayconfirm" >
+                        <p className={styles.navListItem}>
+                            linepay</p>
+                    </Link>
+                </div>
                 {
                     authorized == true ? (
                         <div className={styles.navLink}>
