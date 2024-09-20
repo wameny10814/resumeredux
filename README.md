@@ -1,4 +1,4 @@
-#恬圈(甜甜圈購物網站)-功能介紹 - demo 網址: https://wameny10814.github.io/resumeredux/
+#恬圈(甜甜圈購物網站)-功能介紹 - demo 網址: https://wameny10814.github.io/resumeredux/  (每日下午五點關閉，隔天早上十點半開啟)
  - navbar hover特效 & react Link實現頁面component跳轉 & Redux 用戶選取商品購物車品項數字顯示
  - 首頁使用react ref 及 Java Script 搭配css 實現 hover 背景換圖、宣傳字更改 與 文字跑馬燈
  ![homepage](https://user-images.githubusercontent.com/104507463/230573962-43af7e14-aca4-4a4c-a9ab-c6d91ce05a97.png)
