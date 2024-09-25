@@ -3,6 +3,8 @@ import { useParams  } from "react-router-dom"
 import { useState,useEffect } from 'react'
 import styles from '../styles/ProductDetail.module.css'
 import { addCart,plus,deduction } from '../counter/CartSlice'
+import Nav from '../Nav'
+import banner from '../imgs/banner.png';
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -16,9 +18,35 @@ function ProductDetail() {
     const [productsdata, setProductData] = useState([]);
     const [counting, setCounting] = useState(1);
 
-     const {
-        REACT_APP_FETCHORIGIN,
-      } = process.env;
+    const {
+    REACT_APP_FETCHORIGIN,
+    } = process.env;
+
+    const [scrollTop,setScrollerTop] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            setScrollerTop(scrollTop / 100);
+            console.log('scrollTop',scrollTop/100 + '%');
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // 清理事件監聽器
+        }
+    }, [])
+
+    const changeclassname = function(){
+        if(scrollTop ===0){
+            return styles.classshow0
+
+        }else if(scrollTop >0){
+            
+            return styles.classshowup
+        
+        }
+    }
 
 
 
@@ -77,6 +105,12 @@ function ProductDetail() {
 
   return (
     <>
+        <div className={changeclassname()}>
+            <Nav ></Nav>
+        </div>
+        <div className={styles.frontbanner}>
+            <img src={banner}></img>
+        </div>
     {productsdata.length==1?( 
         <div>
             <div className={styles.Productdetail}>

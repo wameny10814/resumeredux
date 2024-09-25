@@ -40,7 +40,7 @@ function App() {
         
         >
           <BrowserRouter>
-            <Nav></Nav>
+            {/* <Nav></Nav> */}
             
               <Routes>
                 <Route path="/resumeredux" element={<Home />} />

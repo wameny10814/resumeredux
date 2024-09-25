@@ -3,6 +3,8 @@ import contactBanner from '../imgs/contactus.png';
 import banner from '../imgs/contact.jpg'
 import styles from '../styles/Contactus.module.css';
 import { useRef, useEffect, useState } from 'react';
+import Nav from '../Nav'
+import stylenav from '../styles/ProductDetail.module.css'
 
 function Contactus() {
     const [myform, setMyform] = useState({
@@ -10,6 +12,7 @@ function Contactus() {
         email: '',
         context: '',
     });
+    const [scrollTop,setScrollerTop] = useState(0);
     const changeFields = (event) => {
         const id = event.target.id;
         const val = event.target.value;
@@ -38,8 +41,36 @@ function Contactus() {
             })
             
     }
+
+    
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            setScrollerTop(scrollTop / 100);
+            console.log('scrollTop',scrollTop/100 + '%');
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // 清理事件監聽器
+        }
+    }, [])
+
+    const changeclassname = function(){
+        if(scrollTop ===0){
+            return stylenav.classshow0
+
+        }else if(scrollTop >0){
+            
+            return stylenav.classshowup
+        
+        }
+    }
     return (
         <div>
+            <div className={changeclassname()}>
+                <Nav ></Nav>
+            </div>
             <div className={styles.bannerSec}>
                 <h2>聯絡我們</h2>
             </div>

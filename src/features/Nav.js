@@ -55,7 +55,6 @@ function Nav() {
     }
     useEffect(() => {
         setDataChange(true)
-        console.log('datachanged')
     }, [Data])
 
     return (

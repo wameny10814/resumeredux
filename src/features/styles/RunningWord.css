@@ -1,5 +1,6 @@
 .scroll{
     overflow: hidden;
+    background-color: #ffeaec;
 }
 .slide{
     animation: slide 10s linear infinite;
@@ -12,6 +13,9 @@
     text-transform: uppercase;
     font-size: 32px;
     color: #edd3a3;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
     }
 
 @keyframes slide {
@@ -21,4 +25,23 @@
     100% {
       transform: translateX(-50%);
     }
+  }
+ 
+  /* .runningitem{
+    position:relative;
+  }
+  .runningitem::before{
+    background-color:#fff;
+    height:150px;
+    width: 555px;
+    content: '';
+    position:absolute;
+    bottom:20px;
+    border-radius: 35% 65% 55% 45% / 73% 42% 58% 27%;
+    animation: water 1s  infinite;
+  } */
+  .runningitem:hover{
+    display: inline-block;
+    transform: translateY(-20px);
+    transition: all 0.2s;
   }

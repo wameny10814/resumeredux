@@ -1,3 +1,4 @@
+
 .inputstyles{
     width: 100%;
     border:1px solid #d9d9d9;
@@ -9,6 +10,7 @@
     width: 100%;
     height: 35px;
     border:1px solid #d9d9d9;
+
 }
 .selectstyles:hover{
     border:1px solid #AC7355;
@@ -39,10 +41,7 @@
 
 .formborder{
     background-color: #F5F5F5;
-    padding:3rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-
+    padding:15rem;
 }
 
 .title{

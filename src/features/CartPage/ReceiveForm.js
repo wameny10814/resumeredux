@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext, useRef,useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Col, Row,Space } from 'antd';
 import { inputotherinfo } from '../counter/CartSlice';
@@ -7,6 +7,8 @@ import styles from '../styles/ReceiveForm.module.css';
 import Confirm from '../Linepay/Confirm';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Nav from '../Nav'
+import stylenav from '../styles/ProductDetail.module.css'
 
 function ReceiveForm() {
     //從store拿取資料、拿現在的訂單資訊
@@ -21,6 +23,7 @@ function ReceiveForm() {
     });
 
     const [sortedinfo, setSortedInfo] = useState([]);
+    const [scrollTop,setScrollerTop] = useState(0);
 
     const [paymentstatus, setPaymentStatus] = useState(false);
     const [TWSections, setTWSections] = useState([
@@ -139,8 +142,6 @@ function ReceiveForm() {
                     
                 })
 
-              
-              
 
             })
     }
@@ -157,8 +158,40 @@ function ReceiveForm() {
         console.log({ id, val });
         setOrderInfo({ ...orderinfo, [id]: val });
         };
+
+        useEffect(() => {
+            const handleScroll = () => {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                setScrollerTop(scrollTop / 100);
+                console.log('scrollTop',scrollTop/100 + '%');
+            };
+    
+            window.addEventListener('scroll', handleScroll);
+            return () => {
+                window.removeEventListener('scroll', handleScroll); // 清理事件監聽器
+            }
+        }, [])
+    
+        const changeclassname = function(){
+            if(scrollTop ===0){
+                return stylenav.classshow0
+    
+            }else if(scrollTop >0){
+                
+                return stylenav.classshowup
+            
+            }
+        }
   return (
-    <div>
+ 
+     
+           
+        <div className={styles.receiveform}>
+          <div className={changeclassname()}>
+                <Nav ></Nav>
+            </div>
+        
+    
       {paymentstatus === false ? ( 
         <div className={styles.formborder}> 
             <h2  className={styles.title}>收件人資訊</h2>
@@ -231,16 +264,18 @@ function ReceiveForm() {
                     </Col>
                 </Row>
                 <div className={styles.flexs}>
-                    {/* <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button> */}
-                    <Link to="/linepayconfirm">
+                    <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button>
+                    {/* <Link to="/linepayconfirm">
                             <button className={styles.gotolinepay}>結帳</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </div>
     ):(<Confirm sortedinfo={sortedinfo}></Confirm>)}
 
     </div>
+     
+    
   )
 }
 

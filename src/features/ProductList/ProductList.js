@@ -4,7 +4,7 @@ import { addCart,plus,deduction } from '../counter/CartSlice'
 import { useNavigate } from 'react-router-dom';
 
 
-
+import Nav from '../Nav';
 import banner from '../imgs/banner.png';
 import styles from '../styles/ProductList.module.css'
 import { useState,useEffect } from 'react';
@@ -159,6 +159,32 @@ function ProductList() {
         }
     ];
 
+    const [scrollTop,setScrollerTop] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            setScrollerTop(scrollTop / 100);
+            console.log('scrollTop',scrollTop/100 + '%');
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // 清理事件監聽器
+        }
+    }, [])
+
+    const changeclassname = function(){
+        if(scrollTop ===0){
+            return styles.classshow0
+
+        }else if(scrollTop >0){
+            
+            return styles.classshowup
+        
+        }
+    }
+
     const {
         REACT_APP_FETCHORIGIN,
       } = process.env;
@@ -180,7 +206,7 @@ function ProductList() {
 
     const getcurrentproductlist = function(page){
 
-        console.log('Current page:', page);
+        // console.log('Current page:', page);
 
         setCurrentPage(page);
 
@@ -211,14 +237,20 @@ function ProductList() {
 
 
     return (
-        <div className={styles.ProductListSec}>
-            <div className={styles.bannerSec}>
-                <img className={styles.bannerimg} src={banner}></img>
-            </div>
+        <>
 
-            <Row gutter={[0, 24]}>
-                {productsdata.map((v, i) => {
-                    return (
+            <div className={changeclassname()}>
+                <Nav ></Nav>
+            </div>
+            <div className={styles.ProductListSec}>
+         
+                <div className={styles.bannerSec}>
+                    <img className={styles.bannerimg} src={banner}></img>
+                </div>
+
+                <Row gutter={[0, 24]}>
+                    {productsdata.map((v, i) => {
+                        return (
 
                         <Col span={8} key={v.sid}>
                             <div  className={styles.ProducSec}>
@@ -242,16 +274,18 @@ function ProductList() {
                             </div>
                         </Col>
 
-                    )
-                })
-                }
-            </Row>
+                        )
+                    })
+                    }
+                </Row>
 
-            <div className={styles.paginationsec}>
-                <Pagination  defaultCurrent={1} total={FakeData.length} onChange={getcurrentproductlist} />
+                <div className={styles.paginationsec}>
+                    <Pagination  defaultCurrent={1} total={FakeData.length} onChange={getcurrentproductlist} />
+                </div>
+
             </div>
 
-        </div>
+        </>
     )
 }
 

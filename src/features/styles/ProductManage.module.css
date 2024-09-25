@@ -66,3 +66,7 @@ overflow: auto;
 .imgpercent{
     width: 100%;
 }
+
+.manage{
+    padding:5rem;
+}

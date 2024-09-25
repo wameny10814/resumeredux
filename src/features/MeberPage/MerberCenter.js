@@ -6,17 +6,44 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import { Col, Divider, Row,Pagination } from 'antd';
 import styles from '../styles/MemberCenter.module.css';
+import Nav from '../Nav';
+import stylenav from '../styles/ProductDetail.module.css'
 
 function MerberCenter() {
 //for 初始畫面商品select option 的data
 const [productsdata, setProductData] = useState([]);
 const [selecteditem, setSelectedItem] = useState('');
+const [scrollTop,setScrollerTop] = useState(0);
 
 let Color = ['#ADD8E6','#ecdfc8','#90be6d','#8ba8cb','#f9844a','#f9c74f','#d79771','#94C4EF','#43aa8b','#A8EBE9','#DCB1B2','#fc9f5b','#add8e6','#C0504D','#95e45a','#9d6fa9','#437d8f','#c77775','#d3b1dc','#d3b1dc','#2FC5F2','#FF7A77','#8DA979','#D973F3','#7175D7','#5AE478','#D0E200','#FFB7B5'];
 
 const {
   REACT_APP_FETCHORIGIN,
 } = process.env;
+
+useEffect(() => {
+  const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      setScrollerTop(scrollTop / 100);
+      console.log('scrollTop',scrollTop/100 + '%');
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+      window.removeEventListener('scroll', handleScroll); // 清理事件監聽器
+  }
+}, [])
+
+const changeclassname = function(){
+  if(scrollTop ===0){
+      return stylenav.classshow0
+
+  }else if(scrollTop >0){
+      
+      return stylenav.classshowup
+  
+  }
+}
 
 //處理初始畫面畫圖的時間區間
 
@@ -263,7 +290,12 @@ useEffect(() => {
   
 
   return (
-    <div className={styles.membercenter}>
+    <>
+        <div className={changeclassname()}>
+              <Nav ></Nav>
+        </div>
+        <div className={styles.membercenter}>
+   
         <div className={styles.flexs}>
           <h2>Peaceful Donut 後台 - 報表數據</h2>
           <div>
@@ -310,12 +342,14 @@ useEffect(() => {
         <Row>
         
           <Col span={7}><p className={styles.charttitles}>期間購買男女比</p><Doughnut type='Doughnut'  data={generdata}></Doughnut></Col>
-       
+        
           <Col span={15} offset={2}><p className={styles.charttitles}>期間購買年齡比</p><Bar type='Bar'  data={agedata}></Bar></Col>
         </Row>
 
         
-    </div>
+      </div>
+    </>
+ 
   )
 }
 

@@ -1,0 +1,37 @@
+
+.words{
+    height: 100vh;
+    background-color: #ffeaec;
+    font-size: 32px;
+    padding:5rem;
+}
+
+.iconsec{
+    width: 150px;
+    height: 150px;
+}
+
+.iconsec img{
+    width: 100%;
+}
+
+.iconsecbottom{
+    overflow: hidden;
+    height: 500px;
+    width: 500px;
+    opacity: 0.5;
+    position: relative;
+    left:60vw;
+}
+
+.iconsecbottom img{
+    width: 100%;
+}
+.wordtextsec{
+    padding:5rem;
+}
+
+.wordtext{
+    color: #ae1d74;
+    opacity: 0.1;
+}

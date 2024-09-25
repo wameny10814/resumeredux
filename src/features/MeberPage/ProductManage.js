@@ -7,6 +7,8 @@ import AddNewProduct from './AddNewProduct'
 import { Col, Row } from 'antd';
 import { Button, message, Popconfirm,Space ,Switch} from 'antd';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Nav from '../Nav';
+import stylenav from '../styles/ProductDetail.module.css'
 
 
 
@@ -15,10 +17,35 @@ function ProductManage() {
     const [productsdata, setProductData] = useState([]);
     const [openeditcom, setOpenEditCom] = useState('');
     const [editinfo, seteEditInfo] = useState({status:0});
+    const [scrollTop,setScrollerTop] = useState(0);
 
     const {
         REACT_APP_FETCHORIGIN,
       } = process.env;
+
+      useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            setScrollerTop(scrollTop / 100);
+            console.log('scrollTop',scrollTop/100 + '%');
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // 清理事件監聽器
+        }
+      }, [])
+      
+      const changeclassname = function(){
+        if(scrollTop ===0){
+            return stylenav.classshow0
+      
+        }else if(scrollTop >0){
+            
+            return stylenav.classshowup
+        
+        }
+      }
 
     const getsproducts = function(){
         fetch(`${REACT_APP_FETCHORIGIN}/admin2/getproducts`, {
@@ -108,6 +135,11 @@ function ProductManage() {
     
     return (
     <div>
+       <div className={changeclassname()}>
+              <Nav ></Nav>
+       </div>
+       <div className={styles.manage}>
+
        <div className={styles.flexs}>
         <h2>Peaceful Donut 後台 -  商品管理</h2>
             <div>
@@ -173,6 +205,9 @@ function ProductManage() {
 
        </div>
        
+
+       </div>
+    
       
     
         
