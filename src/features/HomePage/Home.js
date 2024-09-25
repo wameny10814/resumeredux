@@ -55,7 +55,6 @@ function Home() {
             
             <div className={styles.home}>
                 <div className={styles.homebannerSec}>
-
                     <p className={styles.bannerTitle}>讓 每 一 口 <br></br><br></br><br></br>令 人 無 法 抗 拒 的 幸 福 好 滋 味</p>
                     <div className={styles.homebannerwalkerMask}></div>
                     <div className={styles.homebannerwalkerSec}>
@@ -71,6 +70,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
+                
                 <WordsChanges scrollTop={scrollTop}></WordsChanges>
                 {/* <PancakeSlider></PancakeSlider> */}
                 {/* <BridgeSlider></BridgeSlider> */}
