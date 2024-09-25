@@ -243,7 +243,7 @@ function ProductList() {
                 <Nav ></Nav>
             </div>
             <div className={styles.ProductListSec}>
-         
+
                 <div className={styles.bannerSec}>
                     <img className={styles.bannerimg} src={banner}></img>
                 </div>
