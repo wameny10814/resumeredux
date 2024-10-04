@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../Nav'
 import stylenav from '../styles/ProductDetail.module.css'
+import { Button, Modal , message} from 'antd';
 
 function ReceiveForm() {
     //從store拿取資料、拿現在的訂單資訊
@@ -24,6 +25,7 @@ function ReceiveForm() {
 
     const [sortedinfo, setSortedInfo] = useState([]);
     const [scrollTop,setScrollerTop] = useState(0);
+    const [messageApi, contextHolder] = message.useMessage();
 
     const [paymentstatus, setPaymentStatus] = useState(false);
     const [TWSections, setTWSections] = useState([
@@ -61,7 +63,7 @@ function ReceiveForm() {
     
 
     const gotopay = ()=>{
-        console.log('addotherinfo',orderinfo);
+       
         let date = new Date();
         let orderid =`${date.getFullYear()}${date.getMonth()}${date.getDate()}${Math.floor(Math.random() * 100000)}`;
         let orderdate = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
@@ -115,7 +117,7 @@ function ReceiveForm() {
 
         const dataforgotopay = paydata.filter((data) => data.id !== 0);
 
-        console.log('dataforgotopay',dataforgotopay);
+        // console.log('dataforgotopay',dataforgotopay);
 
         // //寫進入資料庫
         fetch(`${REACT_APP_FETCHORIGIN}/admin2/gotopay`, {
@@ -147,6 +149,34 @@ function ReceiveForm() {
     }
 
     const checkout = () => {
+        // console.log('addotherinfo',orderinfo);
+        //前端檢查
+        let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        let testresult = emailRule.test(orderinfo.email);
+    
+        if(testresult == false){
+            messageApi.info('電子信箱格式錯誤');
+            return
+        }
+        if(orderinfo.firstname.length <=1 || orderinfo.lastname.length <=1 || orderinfo.address.length <=1){
+            messageApi.info('請填寫姓名及地址');
+            return
+        }
+        // if(!orderinfo.birthday || orderinfo.birthday.length <=1){
+        //     messageApi.info('請填寫生日資訊');
+        //     return
+        // }
+        // if(!orderinfo.gender){
+        //     messageApi.info('請選填性別');
+        //     return
+            
+        // }
+        if(!orderinfo.sections){
+            messageApi.info('請選填收件縣市');
+            return
+            
+        }
+        
         gotopay();
     }
 
@@ -199,14 +229,14 @@ function ReceiveForm() {
                 <Row gutter={[0, 24]}>
          
                     <Col span={11}>
-                        <p className={styles.formtitlestyles}>姓
+                        <p className={styles.formtitlestyles}>姓*
                         </p>
                         <input  id="firstname" className={styles.inputstyles} value={orderinfo.firstname}   onChange={changeFields}></input>
                     
                     </Col>
                     <Col span={12} offset={1}>
                         <p className={styles.formtitlestyles}>
-                            名
+                            名*
                         </p>
                         <input id="lastname" className={styles.inputstyles} value={orderinfo.lastname} onChange={changeFields}></input>
                     </Col>
@@ -226,6 +256,7 @@ function ReceiveForm() {
                             性別
                         </p>
                         <select  placeholder='性別' id="gender" className={styles.selectstyles} onChange={changeFields}>
+                                <option disabled selected>選擇性別</option>
                                 <option value="F">女性</option>
                                 <option value="M">男性</option>
                                 <option value="O">其他</option>
@@ -235,7 +266,7 @@ function ReceiveForm() {
                 <Row gutter={[0, 24]}>
                     <Col span={24} >
                         <p className={styles.formtitlestyles}>
-                            電子信箱
+                            電子信箱*
                         </p>
                         <input  id="email" className={styles.inputstyles} value={orderinfo.email}   onChange={changeFields}></input>
                     </Col>
@@ -243,12 +274,13 @@ function ReceiveForm() {
                 <Row gutter={[0, 24]}>
                     <Col span={4}>
                         <p className={styles.formtitlestyles}>
-                            收件縣市
+                            收件縣市*
                         
                         </p>
-                        <select id="sections" className={styles.selectstyles} onChange={changeFields}>
+                        <select id="sections" className={styles.selectstyles} onChange={changeFields}><option disabled selected>選擇縣市</option>
                             {TWSections.map((value,index)=>{
                                 return (
+                                    
                                     <option value={value} key={value}>{value}</option>
                                 )
                             })}
@@ -257,7 +289,7 @@ function ReceiveForm() {
                     </Col>
                     <Col span={20}>
                        <p className={styles.formtitlestyles}>
-                       收件地址
+                       收件地址*
                        </p>
                        <input  id="address" className={styles.inputstyles}
                         value={orderinfo.address}   onChange={changeFields}></input>
@@ -269,6 +301,7 @@ function ReceiveForm() {
                             <button className={styles.gotolinepay}>結帳</button>
                     </Link> */}
                 </div>
+                {contextHolder}
             </div>
         </div>
     ):(<Confirm sortedinfo={sortedinfo}></Confirm>)}

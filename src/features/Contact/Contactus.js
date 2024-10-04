@@ -5,6 +5,7 @@ import styles from '../styles/Contactus.module.css';
 import { useRef, useEffect, useState } from 'react';
 import Nav from '../Nav'
 import stylenav from '../styles/ProductDetail.module.css'
+import { Button, Modal , message} from 'antd';
 
 function Contactus() {
     const [myform, setMyform] = useState({
@@ -13,6 +14,19 @@ function Contactus() {
         context: '',
     });
     const [scrollTop,setScrollerTop] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const showModal = () => {
+        setIsModalOpen(true);
+      };
+      const handleOk = () => {
+        setIsModalOpen(false);
+      };
+      const handleCancel = () => {
+        setIsModalOpen(false);
+      };
+
     const changeFields = (event) => {
         const id = event.target.id;
         const val = event.target.value;
@@ -27,6 +41,16 @@ function Contactus() {
         event.preventDefault();
         // console.log('FETCHORIGIN', process.env.REACT_APP_FETCHORIGIN);
         //fetch to backend
+        let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        let testresult = emailRule.test(myform.email);
+        if(myform.name.length <=1 || myform.context.length <=1){
+            messageApi.info('聯絡人及備註不可空白');
+            return
+        }
+        if(testresult == false){
+            messageApi.info('電子信箱格式錯誤');
+            return
+        }
         fetch(`${REACT_APP_FETCHORIGIN}/admin2/contactus`, {
             method: 'POST',
             body: JSON.stringify(myform),
@@ -37,6 +61,11 @@ function Contactus() {
             .then((r) => r.json())
             .then((result) => {
                 console.log('result', result);
+                if(result.success == true){
+                    showModal();
+                }else{
+                    console.log('456');
+                }
                 
             })
             
@@ -91,6 +120,11 @@ function Contactus() {
                 </div>
                 <button className={styles.formsubmit} onClick={submitemail}>送出</button>
             </form>
+            {contextHolder}
+
+            <Modal title="信件已送出" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <p>感謝回饋，該內容已送至客服信箱。</p>
+            </Modal>
 
         </div>
     )

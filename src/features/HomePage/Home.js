@@ -11,6 +11,8 @@ import BridgeSlider from './BridgeSlider';
 import Nav from '../Nav';
 import navstyle from '../styles/Nav.module.css';
 import WordsChanges from './WordsChanges';
+import Sliders from './Sliders';
+import DonutHome from './DonutHome'
 
 function Home() {
 
@@ -38,10 +40,16 @@ function Home() {
             
             return styles.classshowup
         }
-        else if(scrollTop >=6 && scrollTop <13.2 ){
+        else if(scrollTop >=6 && scrollTop <14 ){
+
         
             return styles.classshowup6
-        }else{
+        }
+        else if(scrollTop >=14 && scrollTop <22){
+            return styles.classshowup7
+
+        }
+        else{
             return styles.classshowup13
 
         }
@@ -54,30 +62,17 @@ function Home() {
             </div>
             
             <div className={styles.home}>
-                <div className={styles.homebannerSec}>
-                    <p className={styles.bannerTitle}>讓 每 一 口 <br></br><br></br><br></br>令 人 無 法 抗 拒 的 幸 福 好 滋 味</p>
-                    <div className={styles.homebannerwalkerMask}></div>
-                    <div className={styles.homebannerwalkerSec}>
-                        <div className={styles.walkersTextSec}>
-                            <p className={styles.walkersTitle}>G O O D T I M E</p>
-                            {/* <div className={styles.walkersSubText}>
-                                <p className={styles.walkersLine}></p>
-                                <p className={styles.walkersText}>SINCERE FOR YOU</p>
-                            </div> */}
-                        </div>
-                        <div className={styles.walkers}>
-                            <img src={friends}></img>
-                        </div>
-                    </div>
-                </div>
-                
+                <DonutHome></DonutHome>
                 <WordsChanges scrollTop={scrollTop}></WordsChanges>
                 {/* <PancakeSlider></PancakeSlider> */}
-                {/* <BridgeSlider></BridgeSlider> */}
                 <RunningWord></RunningWord>
                 <DropingSlider></DropingSlider>
+                {/* <BridgeSlider></BridgeSlider> */}
+
+                
 
             </div>
+
 
         </div>
 

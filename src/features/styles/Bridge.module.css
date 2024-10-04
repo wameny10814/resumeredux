@@ -1,9 +1,12 @@
 
+/* *{
+    outline: 1px solid;
+} */
 .bridge{
-height: 100vh;
+height: 120vh;
 background-color: #F5F5F5;
 position: relative;
-background-image: url(../imgs/homebanner.jpg);
+/* background-image: url(../imgs/homebanner.jpg); */
 
 
 }
@@ -24,7 +27,7 @@ background-image: url(../imgs/homebanner.jpg);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
-    background-image: url(../imgs/homebanner.jpg);
+    /* background-image: url(../imgs/homebanner.jpg); */
     background-size: contain;
     height: 100vh;
     background-position: 80%;
@@ -48,4 +51,29 @@ background-image: url(../imgs/homebanner.jpg);
     top:20%;
     left: 10%;
     text-align: center;
+}
+
+.waves{
+    height:300px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    
+}
+.wavesdot{
+    height:100px;
+    width: 100px;
+    border-radius: 77% 23% 62% 38% / 43% 65% 35% 57%;
+    background-color: #ac7355;
+    filter: drop-shadow(0px 8px 4px rgba(174, 29, 116, .1));
+    animation: oxxo 5s linear 2s infinite alternate;
+}
+
+@keyframes oxxo{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(180deg);
+    }
 }

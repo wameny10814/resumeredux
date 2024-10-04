@@ -1,5 +1,6 @@
-.membercenter{
 
+.membercenter{
+    
     padding:3% 10%;
 }
 .flexs{
@@ -55,4 +56,11 @@
     color:#fff;
     transform: scale(1.2);
     transition: .5s;
+}
+
+.oohlogin{
+    height:100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

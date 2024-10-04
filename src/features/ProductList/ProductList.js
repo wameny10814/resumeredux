@@ -2,13 +2,10 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addCart,plus,deduction } from '../counter/CartSlice'
 import { useNavigate } from 'react-router-dom';
-
-
 import Nav from '../Nav';
 import banner from '../imgs/banner.png';
 import styles from '../styles/ProductList.module.css'
 import { useState,useEffect } from 'react';
-
 import { Col, Divider, Row,Pagination } from 'antd';
 
 function ProductList() {
@@ -187,7 +184,7 @@ function ProductList() {
 
     const {
         REACT_APP_FETCHORIGIN,
-      } = process.env;
+    } = process.env;
 
     let facktwo = [];
 
@@ -232,7 +229,7 @@ function ProductList() {
 
     useEffect(() => {
         getcurrentproductlist(1);
-      },[]);
+    },[]);
 
 
 
@@ -248,10 +245,9 @@ function ProductList() {
                     <img className={styles.bannerimg} src={banner}></img>
                 </div>
 
-                <Row gutter={[0, 24]}>
+                <Row gutter={[16, 24]}>
                     {productsdata.map((v, i) => {
                         return (
-
                         <Col span={8} key={v.sid}>
                             <div  className={styles.ProducSec}>
                                 <div className={styles.ProductimgSec} onClick={() => goToDetail(v.sid)}>

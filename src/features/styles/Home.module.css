@@ -131,7 +131,18 @@
     color: #ae1d74;
     box-shadow: 0px 4px 4px rgba(174, 29, 116, 0.1);
 }
+.classshowup7{
+    opacity: 1;
+    position: fixed;
+    top: 0; /* 從上方滑入 */
+    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 1;
+    width: 100%;
 
+    background-color: rgb(170, 92, 1);
+    color: #ae1d74;
+    box-shadow: 0px 4px 4px rgba(174, 29, 116, 0.1);
+}
 .classshowup13{
     opacity: 1;
     position: fixed;
@@ -139,7 +150,7 @@
     transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
     z-index: 1;
     width: 100%;
-    background: rgb(170, 92, 1);
+    background: #ac7355;
     box-shadow: 0px 4px 4px rgba(174, 29, 116, 0.1);
 
 }

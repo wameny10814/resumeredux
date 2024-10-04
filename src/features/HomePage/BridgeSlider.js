@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../styles/Bridge.module.css'
 import  { useEffect, useState } from 'react';
 
+
 function BridgeSlider() {
 
     const [scrollTop,setScrollerTop] = useState(0);
@@ -20,9 +21,8 @@ function BridgeSlider() {
     }, [])
 
     const changeclassname = function(){
-        if(scrollTop >=5 && scrollTop <7){
-            return styles.class5
-        }else if(scrollTop >=8){
+        
+        if(scrollTop >=19){
             return styles.class8
         }else{
             return styles.bridgetex
@@ -30,9 +30,34 @@ function BridgeSlider() {
     }
 
     return (
-        <div className={styles.bridge} >
-            <p className={changeclassname()}>A PLUFFY DONUT</p>
-        </div>
+        <>
+            <div className={styles.bridge} >
+                <p className={changeclassname()}>A PLUFFY DONUT</p>
+    
+            </div>
+            <div className={styles.waves}>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+            <div className={styles.wavesdot}></div>
+
+            </div>
+        </>
+          
+  
+      
+    
     )
 }
 

@@ -2,6 +2,8 @@
 .inputstyles{
     width: 100%;
     border:1px solid #d9d9d9;
+    height: 35px;
+    padding-left: 10px;
 }
 .inputstyles:hover{
     border:1px solid #AC7355;

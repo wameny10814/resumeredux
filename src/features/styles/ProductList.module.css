@@ -2,6 +2,9 @@
 
 .ProductListSec{
     margin-bottom: 3rem;
+    width: 1000px;
+    margin: auto;
+    
 }
 .bannerSec{
     width: 1000px;
@@ -77,6 +80,17 @@
 
 .classshowup span{
     color:#fff;
+}
+
+.ProducSec{
+    border:1px solid #AC7355;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(174, 29, 116, 0.1);
+    padding:1rem;
+    
+}
+.ProducSec:hover{
+    opacity: 0.8;
 }
 
 
