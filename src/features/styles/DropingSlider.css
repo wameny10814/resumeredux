@@ -124,6 +124,7 @@
     width: 100%;
 }
 
+
 @media (max-width: 767px){
 
     .DropingSliderLeftRunningDonuts {
@@ -171,6 +172,10 @@
         color: rgb(94, 67, 50);
         margin-right: 5rem;
         height: 30%;
+    }
+
+    .DropingSliderLeftText{
+        display: none;
     }
 
 }

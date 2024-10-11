@@ -162,9 +162,9 @@
 .classshowup13 span{
     color:#fff;
 }
-*{
+/* *{
     outline: 1px solid;
-}
+} */
 @media (max-width: 767px) { 
 
     .bannerTitle {

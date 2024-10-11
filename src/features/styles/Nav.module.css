@@ -83,3 +83,14 @@
   .homeimg{
     width: 100%;
   }
+
+  @media (max-width: 767px){
+
+    .navArrorLeft {
+      margin: 0px;
+  }
+
+  }
+
+
+
