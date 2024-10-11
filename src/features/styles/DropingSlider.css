@@ -123,3 +123,54 @@
 .DropingSliderLeftRunningDonuts img {
     width: 100%;
 }
+
+@media (max-width: 767px){
+
+    .DropingSliderLeftRunningDonuts {
+        position: absolute;
+        top: 50vh;
+        right: 30vw;
+        width: 200px;
+    }
+
+    .DropingSliderLeftButtonStrawberry {
+     
+        top: 90%;
+        right: 70%;
+   
+    }
+
+    .DropingSliderLeftButtonMacha {
+   
+        top: 40%;
+        right: 50%;
+   
+    }
+
+    .DropingSliderLeftButtonSec {
+    
+        top: 40%;
+        right: 40%;
+    }
+
+    .DropingSliderLeft {
+       
+        padding: 3rem;
+      
+    }
+
+    .DropingSliderLeftTitleMain {
+        font-size: 20px;
+   
+    }
+
+    .DropingSliderLeftTitleSub {
+        -webkit-writing-mode: vertical-lr;
+        font-size: 20px;
+        font-weight: 800;
+        color: rgb(94, 67, 50);
+        margin-right: 5rem;
+        height: 30%;
+    }
+
+}

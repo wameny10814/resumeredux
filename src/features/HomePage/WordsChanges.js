@@ -18,7 +18,7 @@ function WordsChanges(props) {
         //要return 一個數字給opacity
         // 計算透明度
         const percentage = (index + 1) / str.length * 100;
-        console.log('scrollTop',scrollTop);
+        // console.log('scrollTop',scrollTop);
 
         if (scrollTop * 10 >= percentage) {
             return 1;

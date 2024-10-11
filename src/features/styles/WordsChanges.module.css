@@ -35,3 +35,39 @@
     color: #ae1d74;
     opacity: 0.1;
 }
+
+@media (max-width: 767px){
+
+    .iconsec {
+        width: 20vw;
+        height: 20vw;
+    }
+    
+    .wordtextsec {
+        padding: 0rem;
+    }
+    
+    .wordtext {
+    
+        font-size: 12px;
+    }
+    .wordtextsec{
+        padding:0;
+    }
+
+    .iconsecbottom {
+        overflow: hidden;
+        height: 50vw;
+        width: 50vw;
+        opacity: 0.5;
+        position: relative;
+        left: 30vw;
+    }
+
+    .words {
+        padding: 3rem;
+        height: 70vh;
+    }
+
+}
+

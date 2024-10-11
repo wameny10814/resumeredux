@@ -21,7 +21,14 @@ function Home() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            setScrollerTop(scrollTop / 100);
+            if (window.innerWidth < 768) {
+                // 手機版調整滾動比例
+                setScrollerTop(scrollTop / 50); // 調整比例值以適應手機滾動
+            } else {
+                // 桌面版保持原樣
+                setScrollerTop(scrollTop / 100);
+            }
+  
             // console.log('scrollTop',scrollTop/100 + '%');
         };
 
