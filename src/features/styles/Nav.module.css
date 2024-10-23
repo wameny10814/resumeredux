@@ -1,24 +1,26 @@
-*{
-  box-sizing: border-box;
 
-} 
 .nav{
     width: 100%;
     position: relative;
+    z-index: 33;
+    
 }
 
 .navList{
     display: flex;
     justify-content: space-around;
     width: 100%;
+    z-index: 33;
 }
 .navLink{
   display: flex;
+  z-index: 33;
   
 }
 .navLink a{
   text-decoration: none ;
   color: rgb(94, 67, 50);
+  z-index: 33;
 
 }
 

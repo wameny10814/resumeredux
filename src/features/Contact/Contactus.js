@@ -22,6 +22,12 @@ function Contactus() {
       };
       const handleOk = () => {
         setIsModalOpen(false);
+        //清空state
+        setMyform({
+            name: '',
+            email: '',
+            context: '',
+        })
       };
       const handleCancel = () => {
         setIsModalOpen(false);
@@ -63,8 +69,11 @@ function Contactus() {
                 console.log('result', result);
                 if(result.success == true){
                     showModal();
+                  
+                  
+                    
                 }else{
-                    console.log('456');
+                    console.log('error');
                 }
                 
             })

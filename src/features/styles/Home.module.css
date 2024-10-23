@@ -4,14 +4,27 @@
     /* overflow: hidden; */
 }
 /* *{
-    outline: 1px solid;
+    outline: 1px solid black;
 } */
+.secs{
+    position: relative;
+}
+.bannerwords{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100%;
+
+}
 .homesec{
     overflow: hidden;
 }
 .homebannerSec{
     height: 100vh;
     position: relative;
+
 }
 .homebanner{
     height: 100vh;
@@ -20,18 +33,39 @@
     width: 99.9%;
     height: 100%;
 }
+
+
 .homebannerSec{
     background-image: url('../imgs//homebanner.jpg');
     background-size: 100%;
-    height: 100vh;
-    background-position: 0 -100px; 
+    background-position: 0 -150px; 
     background-repeat: no-repeat;
+    
+    height: 103vh;
+    width: 100vw;
+    z-index: 2;
+    position: relative;
+    mix-blend-mode: screen ;
+ 
 }
+.bgvideo{
+    width: 110vw;
+
+    z-index: 1;
+    opacity: 0.8;
+    position: absolute;
+    top:0px;
+    left: 0;
+
+}
+
+
+
 .bannerTitle{
     /* //讓文字直式的屬性 */
     -webkit-writing-mode: vertical-lr;
-    color: white;
-    font-weight: 500;
+    color: rgb(170, 92, 1);
+    font-weight: bold;
     font-size: larger;
     margin-left: 10%;
     padding-top: 10%;
@@ -39,13 +73,14 @@
 
 .walkersTextSec{
     position: relative;
-    height: 280px;
+    height: 130px;
+    right: 0vw;
 
 }
 .walkersTitle{
     position: absolute;
     right: 20px;
-    bottom: 10px;
+    bottom: 0px;
     font-size: 42px;
     color: rgb(94, 67, 50);
 }
@@ -70,24 +105,28 @@
 }
 .walkers{
     position: absolute;
-    right: 0px;
-    height: 40vh;
-    top: 51vh;
-    height: 230px;
+    right: 0vw;
+    top: 70vh;
+    height: 200px;
     overflow: hidden;
 }
 .walkers img{
     height: 100%;
 }
 .homebannerwalkerMask{
+    height: 100vh;
+    position: relative;
+    /* -webkit-mask: url(../imgs/bannerwalkermask.png) center center/cover no-repeat; */
+
+}
+.homebannerwalkerinner{
+    background-color: antiquewhite;
+    width: 300px;
+    height: 100px;
     position: absolute;
     right: 0;
-    bottom: 0;
-    background-color: antiquewhite;
-    width: 500px;
-    height: 240px;
-    /* border-radius: 74% 26% 100% 0% / 54% 100% 0% 46% ; */
-    -webkit-mask: url(../imgs/bannerwalkermask.png) center center/cover no-repeat;
+    bottom:430px;
+    border-radius: 74% 50% 100% 0% / 70% 100% 0% 60% ;
 
 }
 
@@ -104,7 +143,7 @@
     position: fixed;
     top: 0; /* 從上方滑入 */
     transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 1;
+    z-index: 30;
     width: 100%;
     background: rgb(139,112,93);
     background: linear-gradient(90deg, rgba(139,112,93,1) 0%, rgba(181,151,123,1) 50%, rgba(99,77,64,1) 100%);
@@ -125,7 +164,7 @@
     position: fixed;
     top: 0; /* 從上方滑入 */
     transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 1;
+    z-index: 30;
     width: 100%;
     background: #ffeaec;
     color: #ae1d74;
@@ -136,7 +175,7 @@
     position: fixed;
     top: 0; /* 從上方滑入 */
     transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 1;
+    z-index: 30;
     width: 100%;
 
     background-color: rgb(170, 92, 1);
@@ -148,7 +187,7 @@
     position: fixed;
     top: 0; /* 從上方滑入 */
     transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 1;
+    z-index: 30;
     width: 100%;
     background: #ac7355;
     box-shadow: 0px 4px 4px rgba(174, 29, 116, 0.1);
