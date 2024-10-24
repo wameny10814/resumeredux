@@ -274,6 +274,37 @@ function ProductList() {
                     })
                     }
                 </Row>
+                {/* <div className={styles.cards}>
+
+                    {productsdata.map((v, i) => {
+                            return (
+                            <div  key={v.sid}>
+                                <div  className={styles.ProducSec}>
+                                    <div className={styles.ProductimgSec} onClick={() => goToDetail(v.sid)}>
+                                        <img src={`${REACT_APP_FETCHORIGIN}/uploads/${v.pic}`} alt={`uploaded-${i}`} className={styles.Productimg}></img>
+                                    </div>
+                                    <div className={styles.ProducDetail}>
+                                        <p>品項: {v.name}</p>
+                                        <p>價格: {v.price}</p>
+                                    </div>
+                                    <div style={{textAlign:'center'}}>
+                                        <button className={styles.addtoCart} onClick={() => dispatch(addCart({
+                                            name: v.name,
+                                            price: v.price,
+                                            id: v.sid,
+                                            key:Data[Data.length - 1].id * 1 + 5,
+                                            quantity: 1,
+                                            total: v.price*1,
+                                        }))}>加入購物車</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            )
+                        })
+                        }
+
+                </div> */}
 
                 <div className={styles.paginationsec}>
                     <Pagination  defaultCurrent={1} total={FakeData.length} onChange={getcurrentproductlist} />

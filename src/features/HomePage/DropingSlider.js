@@ -185,25 +185,15 @@ function DropingSlider() {
             </div> */}
             <div ref={DropingSliderRight} className='DropingSliderRight'>
                 <div className='DropingSliderRightPic'>
-                    <img ref={DropingSliderRightPic} className='DropingSliderRightPicimg' src={
-                        (() => {
-                            if (SliderPic === 'sugar') {
-                                return Sugar
-
-                            } else if (SliderPic === 'macha') {
-                                return (
-                                    Macha
-                                )
-                            } else if (SliderPic === 'strawberry') {
-                                return (
-                                    Strawberry
-                                )
-                            } else {
-                                return Sugar
-
-                            }
-                        })()
-                    }></img>
+                    <div ref={DropingSliderRightPic} className='DropingSliderRightPicimg'  style={{
+                        backgroundImage: `url(${
+                            SliderPic === 'sugar' ? Sugar :
+                            SliderPic === 'macha' ? Macha :
+                            SliderPic === 'strawberry' ? Strawberry : Sugar
+                        })`,
+                    
+                    }}
+                    ></div>
                 </div>
                 <div ref={machaele} className='DropingSliderLeftButtonMachaSec'>
                     <p className='DropingSliderLeftButtonMacha'>抹茶</p>

@@ -12,11 +12,26 @@ import Nav from '../Nav';
 import navstyle from '../styles/Nav.module.css';
 import WordsChanges from './WordsChanges';
 import Sliders from './Sliders';
-import DonutHome from './DonutHome'
+import DonutHome from './DonutHome';
+import jumpIcon from '../imgs/fork.svg'
 
 function Home() {
 
     const [scrollTop,setScrollerTop] = useState(0);
+    const [controlName,setControlName] = useState(false);
+
+    const jumptoup = function(){
+        setControlName(true);
+        window.setTimeout(function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth', 
+                });
+            setControlName(false);
+        }, 1000);
+    }
+
+   
 
     useEffect(() => {
         const handleScroll = () => {
@@ -62,6 +77,8 @@ function Home() {
         }
     }
 
+ 
+
     return (
         <div className={styles.homesec}>
             <div className={changeclassname()}>
@@ -75,6 +92,7 @@ function Home() {
                 <RunningWord></RunningWord>
                 <DropingSlider></DropingSlider>
                 {/* <BridgeSlider></BridgeSlider> */}
+                <div className={controlName?styles.jumping:styles.jump} onClick={jumptoup}><img src={jumpIcon}></img></div>
 
                 
 

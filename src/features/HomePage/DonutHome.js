@@ -9,7 +9,7 @@ function DonutHome() {
             <div className={styles.homebannerSec}>
             </div>
             <video className={styles.bgvideo}
-                src="https://cxc421.github.io/draw-lots/static/media/smoke.9c21ff18.mp4" autoplay="autoplay" muted="true" loop="true"> 
+                src="https://cxc421.github.io/draw-lots/static/media/smoke.9c21ff18.mp4" autoPlay="autoplay" muted={true} loop={true}> 
             </video>
             <div className={styles.bannerwords}>
                     <p className={styles.bannerTitle}>讓 每 一 口 <br></br><br></br><br></br>令 人 無 法 抗 拒 的 幸 福 好 滋 味</p>

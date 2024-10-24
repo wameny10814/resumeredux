@@ -100,7 +100,7 @@ function Login() {
                         type="text"
                         value={myform.account}
                         onChange={changeFields}
-                        placeholder="帳號"
+                        placeholder="帳號:admin"
                         className={styles.inputstyles}></input>
                 </div>
             <div className={styles.inputsec}>
@@ -111,7 +111,7 @@ function Login() {
                     name="passwrod"
                     onChange={changeFields}
                     value={myform.password}
-                    placeholder="密碼"
+                    placeholder="密碼:admin"
                     className={styles.inputstyles}></input>
             </div>
             <div><button onClick={loginbtn} className={styles.loginbtn}>登入</button></div>
