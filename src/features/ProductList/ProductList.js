@@ -162,7 +162,7 @@ function ProductList() {
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             setScrollerTop(scrollTop / 100);
-            console.log('scrollTop',scrollTop/100 + '%');
+            // console.log('scrollTop',scrollTop/100 + '%');
         };
 
         window.addEventListener('scroll', handleScroll);
