@@ -34,12 +34,13 @@ function AddNewProduct(props) {
 
     // 當用戶選擇文件時更新狀態
     const handleFileChange = (event) => {
-        console.log('event',event.target.files[0].size);
+        console.log('event',event.target.files[0]);
         if (event.target.files[0].sizee > 10 * 1024 * 1024) { // 檢查文件大小是否超過 10MB
             alert('文件太大，請選擇小於 10MB 的文件');
             return;
         }
         seteEditInfo({ ...editinfo, pic: event.target.files[0] });
+      
 
         //前端預覽圖片
         const file = event.target.files[0];
