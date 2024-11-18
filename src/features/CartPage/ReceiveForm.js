@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import Nav from '../Nav'
 import stylenav from '../styles/ProductDetail.module.css'
 import { Button, Modal , message} from 'antd';
-
+import { deleteall } from '../counter/CartSlice';
 function ReceiveForm() {
     //從store拿取資料、拿現在的訂單資訊
     const Data = useSelector(state => state.cartTotal.value)
@@ -214,7 +214,8 @@ function ReceiveForm() {
         }
 
         const clear = function(){
-            // console.log('clear');
+            console.log('clear');
+            dispatch(deleteall())
             window.location.assign('https://wameny10814.github.io/resumeredux/#/linepayconfirm');
         }
   return (

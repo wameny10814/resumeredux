@@ -77,6 +77,9 @@ export const CartSlice = createSlice({
         discountincrementByAmount: (state, action) => {
             state.value = action.payload * 500
         },
+        dataDelall: (state, action) => {
+            state.value = []
+        },
         inputotherinfo: (state, action) => {
             state.value = state.value.map(cart => {
                 if (cart.key === 0) {
