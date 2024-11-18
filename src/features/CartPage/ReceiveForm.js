@@ -137,9 +137,9 @@ function ReceiveForm() {
                     })
                 .then((r) => r.json())
                 .then((data) => {
-                    console.log('data2', data);
+                    console.log('data2', data.paymentUrl.web);
                     // setID(data.orderId);
-                    window.location.assign(data.paymentUrl.web);
+                    // window.location.assign(data.paymentUrl.web);
                     // setPaymentStatus(true);
                     
                 })
@@ -211,6 +211,11 @@ function ReceiveForm() {
                 return stylenav.classshowup
             
             }
+        }
+
+        const clear = function(){
+            // console.log('clear');
+            window.location.assign('https://wameny10814.github.io/resumeredux/#/linepayconfirm');
         }
   return (
  
@@ -296,10 +301,9 @@ function ReceiveForm() {
                     </Col>
                 </Row>
                 <div className={styles.flexs}>
-                    <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button>
-                    {/* <Link to="/linepayconfirm">
-                            <button className={styles.gotolinepay}>結帳</button>
-                    </Link> */}
+                    {/* <button onClick={checkout} className={styles.gotolinepay} type="">前往結帳{paymentstatus}</button> */}
+                    <button className={styles.gotolinepay} onClick={clear}>結帳</button>
+                    
                 </div>
                 {contextHolder}
             </div>
