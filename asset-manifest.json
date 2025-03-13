@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/resumeredux/static/css/main.8babb1f1.css",
-    "main.js": "/resumeredux/static/js/main.b02ff5ad.js",
+    "main.js": "/resumeredux/static/js/main.58b728af.js",
     "static/js/787.4d280b39.chunk.js": "/resumeredux/static/js/787.4d280b39.chunk.js",
     "static/media/pancakeSliderPic.png": "/resumeredux/static/media/pancakeSliderPic.70552e581f19eed06991.png",
     "static/media/login.jpg": "/resumeredux/static/media/login.123d60e20e658f747b50.jpg",
@@ -26,11 +26,11 @@
     "static/media/arrowLeft.svg": "/resumeredux/static/media/arrowLeft.d87de6c20a473853be28ec586cb14953.svg",
     "static/media/arrowRight.svg": "/resumeredux/static/media/arrowRight.928a2f252846dc7f67e86dfd50157546.svg",
     "main.8babb1f1.css.map": "/resumeredux/static/css/main.8babb1f1.css.map",
-    "main.b02ff5ad.js.map": "/resumeredux/static/js/main.b02ff5ad.js.map",
+    "main.58b728af.js.map": "/resumeredux/static/js/main.58b728af.js.map",
     "787.4d280b39.chunk.js.map": "/resumeredux/static/js/787.4d280b39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8babb1f1.css",
-    "static/js/main.b02ff5ad.js"
+    "static/js/main.58b728af.js"
   ]
 }
