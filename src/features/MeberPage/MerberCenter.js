@@ -173,7 +173,7 @@ const getproductlist = function(){
         enddate: todayformatted,
       }));
 
-      drawreport();
+      // drawreport();
       }else{
           console.log('err');
       }
@@ -299,7 +299,7 @@ useEffect(() => {
     // 設定警告訊息
     const message = "重整將登入管理者身分，確定要離開嗎？";
     event.preventDefault();
-    event.returnValue = message; // 這行是為了相容某些瀏覽器（例如 Chrome）。
+    event.returnValue = message; 
     return message;
   };
 
