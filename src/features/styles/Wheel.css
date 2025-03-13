@@ -1,0 +1,44 @@
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid #ffcc00;
+    position: relative;
+    background: conic-gradient(
+      #ff5733 0deg 60deg,
+      #ffcc00 60deg 120deg,
+      #33ff57 120deg 180deg,
+      #33ccff 180deg 240deg,
+      #cc33ff 240deg 300deg,
+      #ff3333 300deg 360deg
+    );
+    transition: transform 4s ease-out;
+  }
+  
+  .segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #ff9900;
+  }
+  

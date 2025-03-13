@@ -10,6 +10,7 @@ import Nav from '../Nav';
 import stylenav from '../styles/ProductDetail.module.css'
 import AuthContext from '../MeberPage/AuthContext';
 import { Button, Result } from 'antd';
+import GoLogin from './GoLogin';
 
 function MerberCenter() {
 //for 初始畫面商品select option 的data
@@ -20,7 +21,7 @@ const [scrollTop,setScrollerTop] = useState(0);
 let Color = ['#ADD8E6','#ecdfc8','#90be6d','#8ba8cb','#f9844a','#f9c74f','#d79771','#94C4EF','#43aa8b','#A8EBE9','#DCB1B2','#fc9f5b','#add8e6','#C0504D','#95e45a','#9d6fa9','#437d8f','#c77775','#d3b1dc','#d3b1dc','#2FC5F2','#FF7A77','#8DA979','#D973F3','#7175D7','#5AE478','#D0E200','#FFB7B5'];
 
 const { authorized, logout } = useContext(AuthContext);
-console.log('authorized',authorized);
+// console.log('authorized',authorized);
 
 const {
   REACT_APP_FETCHORIGIN,
@@ -292,6 +293,24 @@ useEffect(() => {
     drawreport();
   }
 }, [drawingdata]);
+
+useEffect(() => {
+  const handleBeforeUnload = (event) => {
+    // 設定警告訊息
+    const message = "重整將登入管理者身分，確定要離開嗎？";
+    event.preventDefault();
+    event.returnValue = message; // 這行是為了相容某些瀏覽器（例如 Chrome）。
+    return message;
+  };
+
+  // 加入事件監聽
+  window.addEventListener("beforeunload", handleBeforeUnload);
+
+  // 清除事件監聽
+  return () => {
+    window.removeEventListener("beforeunload", handleBeforeUnload);
+  };
+}, []);
   
 
   return (
@@ -306,7 +325,7 @@ useEffect(() => {
           <div className={styles.flexs}>
             <h2>Peaceful Donut 後台 - 報表數據</h2>
             <div>
-                <Link to="/ProductMange">
+                <Link to="/ProductManage">
                   <button className={styles.linkbtn}>商品管理</button>
                 </Link>
             </div>
@@ -358,20 +377,7 @@ useEffect(() => {
         
         </div>
 
-        ) : (<div className={styles.oohlogin}>
-            <Result
-              title="管理員請記得登入喔!"
-              
-              extra={
-            
-                <Button type="primary" key="console">
-                      <Link to="/Login">
-                        Go Login
-                      </Link>
-                </Button>
-              }
-            />
-        </div>)}
+        ) : (<GoLogin></GoLogin>)}
       
     </>
  
